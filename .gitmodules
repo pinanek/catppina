@@ -1,0 +1,15 @@
+[submodule "ports/bat"]
+	path = ports/bat
+	url = https://github.com/catppuccin/bat
+[submodule "ports/yazi"]
+	path = ports/yazi
+	url = https://github.com/catppuccin/yazi
+[submodule "ports/ghostty"]
+	path = ports/ghostty
+	url = https://github.com/catppuccin/ghostty
+[submodule "ports/fish"]
+	path = ports/fish
+	url = https://github.com/catppuccin/fish
+[submodule "ports/fzf"]
+	path = ports/fzf
+	url = https://github.com/catppuccin/fzf
