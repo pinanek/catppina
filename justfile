@@ -1,9 +1,10 @@
 _default:
     @just --list
 
+theme_name := 'catppina'
+
 theme_variant := 'mocha'
 theme_accent := 'blue'
-theme_name := 'catppuccin_' + theme_variant
 
 color_overrides_file := justfile_directory() / 'color_overrides.json'
 color_overrides := shell('echo $(cat $1)', color_overrides_file)
@@ -12,7 +13,6 @@ color_overrides_without_hashtag := shell("echo $(echo $1 | sed 's/#//g')", color
 scripts_dir := justfile_directory() / 'scripts'
 dist_dir := justfile_directory() / 'dist'
 temp_dir := justfile_directory() / '.temp'
-
 
 @prepare:
   echo -n 'Preparing...'
