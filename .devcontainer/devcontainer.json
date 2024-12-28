@@ -1,5 +1,5 @@
 {
-  "name": "cat",
+  "name": "catppina",
   "containerUser": "pinanek",
   "workspaceMount": "source=${localWorkspaceFolder},target=/home/pinanek/workspace,type=bind",
   "workspaceFolder": "/home/pinanek/workspace",
@@ -13,9 +13,6 @@
       "extensions": [
         "dprint.dprint",
         "ms-python.python",
-        "ms-toolsai.jupyter",
-        "njpwerner.autodocstring",
-        "tamasfe.even-better-toml",
         "ms-azuretools.vscode-docker",
         "christian-kohler.path-intellisense"
       ],

@@ -1,23 +1,17 @@
-# -------------------------------------------------------- #
-# ------------------ System and runtimes ----------------- #
-# -------------------------------------------------------- #
-
 ARG DENO_VERSION=2.1.4
-ARG WHISKERS_VERSION=2.5.1
+ARG WHISKERS_VERSION=2.4.0
 
 ARG USERNAME=pinanek
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 ARG USER_HOME=/home/${USERNAME}
 
-FROM debian:trixie
+FROM debian:bookworm
 
 ARG USERNAME
 ARG USER_UID
 ARG USER_GID
 ARG USER_HOME
-
-# ------------------------ System ----------------------- #
 
 # Create non-root user
 RUN DEBIAN_FRONTEND=noninteractive groupadd --gid ${USER_GID} ${USERNAME} \
