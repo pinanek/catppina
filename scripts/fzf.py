@@ -11,7 +11,7 @@ def get(content: str) -> str:
     match_result = script_re.match(content)
     if match_result:
         script = match_result.group(2).strip()
-        return script.replace("-Ux", "-Gx")
+        return script.replace("-Ux", "-gx")
 
 
 if __name__ == "__main__":
