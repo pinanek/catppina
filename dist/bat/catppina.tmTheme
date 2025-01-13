@@ -30,7 +30,7 @@
           <key>accent</key>
           <string>#b5ccff</string>
           <key>selection</key>
-          <string>#93939340</string>
+          <string>#93939440</string>
           <key>activeGuide</key>
           <string>#323233</string>
           <key>findHighlight</key>
@@ -58,7 +58,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#939393</string>
+          <string>#939394</string>
           <key>fontStyle</key>
           <string/>
         </dict>
@@ -1226,7 +1226,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#939393</string>
+          <string>#939394</string>
         </dict>
       </dict>
       <dict>
@@ -2008,7 +2008,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#939393</string>
+          <string>#939394</string>
         </dict>
       </dict>
       <dict>
