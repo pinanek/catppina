@@ -70,6 +70,17 @@ temp_dir := justfile_directory() / '.temp'
 
   echo ' done!'
 
+@build_helix:
+  echo -n 'Building helix...'
+
+  mkdir -p {{dist_dir}}/helix
+
+  cd {{temp_dir}}/helix \
+    && whiskers helix.tera --color-overrides '{{color_overrides_without_hashtag}}'
+  mv {{temp_dir}}/helix/themes/default/catppuccin_mocha.toml {{dist_dir}}/helix/{{theme_name}}.toml
+
+  echo ' done!'
+
 @build_yazi:
   echo -n 'Building yazi...'
 

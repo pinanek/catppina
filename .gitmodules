@@ -13,3 +13,6 @@
 [submodule "ports/fzf"]
 	path = ports/fzf
 	url = https://github.com/catppuccin/fzf
+[submodule "ports/helix"]
+	path = ports/helix
+	url = https://github.com/catppuccin/helix
