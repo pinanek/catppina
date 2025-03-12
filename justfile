@@ -97,5 +97,6 @@ build: prepare \
   build_fish \
   build_fzf \
   build_ghostty \
+  build_helix \
   build_yazi \
   clean
