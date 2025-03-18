@@ -110,5 +110,5 @@ build: prepare \
   build_ghostty \
   build_helix \
   build_yazi \
-  build_zellij
+  build_zellij \
   clean
