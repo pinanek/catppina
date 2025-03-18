@@ -98,8 +98,9 @@ temp_dir := justfile_directory() / '.temp'
   mkdir -p {{dist_dir}}/zellij
 
   cd {{temp_dir}}/zellij \
-    && whiskers zellij.tera --color-overrides '{{color_overrides_without_hashtag}}' --flavor mocha
+    && whiskers zellij.tera --color-overrides '{{color_overrides_without_hashtag}}'
   mv {{temp_dir}}/zellij/catppuccin.kdl {{dist_dir}}/zellij/{{theme_name}}.kdl
+  python3 {{scripts_dir}}/zellij.py {{temp_dir}}/zellij/catppuccin.kdl > {{dist_dir}}/zellij/{{theme_name}}.kdl
 
   echo ' done!'
 
