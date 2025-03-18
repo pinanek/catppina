@@ -92,6 +92,17 @@ temp_dir := justfile_directory() / '.temp'
 
   echo ' done!'
 
+@build_zellij:
+  echo -n 'Building zellij...'
+
+  mkdir -p {{dist_dir}}/zellij
+
+  cd {{temp_dir}}/zellij \
+    && whiskers zellij.tera --color-overrides '{{color_overrides_without_hashtag}}' --flavor mocha
+  mv {{temp_dir}}/zellij/catppuccin.kdl {{dist_dir}}/zellij/{{theme_name}}.kdl
+
+  echo ' done!'
+
 build: prepare \
   build_bat \
   build_fish \
@@ -99,4 +110,5 @@ build: prepare \
   build_ghostty \
   build_helix \
   build_yazi \
+  build_zellij
   clean
