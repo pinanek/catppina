@@ -16,3 +16,6 @@
 [submodule "ports/helix"]
 	path = ports/helix
 	url = https://github.com/catppuccin/helix
+[submodule "ports/zellij"]
+	path = ports/zellij
+	url = https://github.com/catppuccin/zellij
