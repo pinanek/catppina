@@ -19,3 +19,6 @@
 [submodule "ports/zellij"]
 	path = ports/zellij
 	url = https://github.com/catppuccin/zellij
+[submodule "ports/lazygit"]
+	path = ports/lazygit
+	url = https://github.com/catppuccin/lazygit

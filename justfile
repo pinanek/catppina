@@ -81,6 +81,15 @@ temp_dir := justfile_directory() / '.temp'
 
   echo ' done!'
 
+@build_lazygit:
+  echo -n 'Building lazygit...'
+
+  mkdir -p {{dist_dir}}/lazygit
+
+  cd {{temp_dir}}/lazygit \
+    && whiskers lazygit.tera --color-overrides '{{color_overrides_without_hashtag}}'
+  mv {{temp_dir}}/lazygit/themes/{{theme_variant}}/{{theme_accent}}.yml {{dist_dir}}/lazygit/{{theme_name}}.yml
+
 @build_yazi:
   echo -n 'Building yazi...'
 
@@ -109,6 +118,7 @@ build: prepare \
   build_fzf \
   build_ghostty \
   build_helix \
+  build_lazygit \
   build_yazi \
   build_zellij \
   clean
