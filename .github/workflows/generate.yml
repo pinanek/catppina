@@ -36,9 +36,9 @@ jobs:
 
       - uses: supplypike/setup-bin@v4
         with:
-          uri: https://github.com/catppuccin/whiskers/releases/download/v2.4.0/whiskers-x86_64-unknown-linux-gnu
+          uri: https://github.com/catppuccin/whiskers/releases/download/v2.5.1/whiskers-x86_64-unknown-linux-gnu
           name: whiskers
-          version: 2.4.0
+          version: 2.5.1
 
       - name: Build themes
         run: |
