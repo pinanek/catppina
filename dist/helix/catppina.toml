@@ -34,7 +34,7 @@
 "operator" = "sky"
 
 "function" = "blue"
-"function.macro" = "mauve"
+"function.macro" = "rosewater"
 
 "tag" = "blue"
 
@@ -107,7 +107,7 @@
 
 "ui.cursor.normal" = { fg = "base", bg = "secondary_cursor_normal" }
 "ui.cursor.insert" = { fg = "base", bg = "secondary_cursor_insert" }
-"ui.cursor.select" = { fg = "base", bg = "secondary_cursor" }
+"ui.cursor.select" = { fg = "base", bg = "secondary_cursor_select" }
 
 "ui.cursorline.primary" = { bg = "cursorline" }
 
@@ -157,5 +157,6 @@ crust = "#101011"
 
 cursorline = "#1e1e1f"
 secondary_cursor = "#ba9794"
+secondary_cursor_select = "#8e99b2"
 secondary_cursor_normal = "#ba9794"
 secondary_cursor_insert = "#60937b"
