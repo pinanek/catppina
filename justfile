@@ -108,7 +108,7 @@ temp_dir := justfile_directory() / '.temp'
 
   cd {{temp_dir}}/zed \
     && whiskers zed.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  python3 {{scripts_dir}}/zed.py {{temp_dir}}/zed/themes/catppuccin-blue.json > {{dist_dir}}/zed/{{theme_name}}.json
+  python3 {{scripts_dir}}/zed.py {{temp_dir}}/zed/themes/catppuccin-mauve.json > {{dist_dir}}/zed/{{theme_name}}.json
 
   echo ' done!'
 

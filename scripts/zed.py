@@ -7,6 +7,12 @@ def get(content: str) -> str:
 
     themes = config.pop("themes")
 
+    new_theme = {}
+    for theme in themes:
+        if theme["name"] == "Catppuccin Mocha":
+            new_theme = theme
+            new_theme["name"] = "Catppuccin Mocha (Catppinna)"
+
     only_mocha_themes = [theme for theme in themes if "Catppuccin Mocha" in theme["name"]]
 
     new_config = { "themes": only_mocha_themes, **config }
