@@ -11,7 +11,7 @@ def get(content: str) -> str:
     for theme in themes:
         if theme["name"] == "Catppuccin Mocha":
             new_theme = theme
-            new_theme["name"] = "Catppuccin Mocha (Catppinna)"
+            new_theme["name"] = "Catppuccin Mocha (Catppina)"
 
     only_mocha_themes = [theme for theme in themes if "Catppuccin Mocha" in theme["name"]]
 
