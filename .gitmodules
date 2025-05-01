@@ -22,3 +22,6 @@
 [submodule "ports/lazygit"]
 	path = ports/lazygit
 	url = https://github.com/catppuccin/lazygit
+[submodule "ports/zed"]
+	path = ports/zed
+	url = https://github.com/catppuccin/zed

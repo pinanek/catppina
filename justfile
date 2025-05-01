@@ -101,6 +101,17 @@ temp_dir := justfile_directory() / '.temp'
 
   echo ' done!'
 
+@build_zed:
+  echo -n 'Building zed...'
+
+  mkdir -p {{dist_dir}}/zed
+
+  cd {{temp_dir}}/zed \
+    && whiskers zed.tera --color-overrides '{{color_overrides_without_hashtag}}'
+  python3 {{scripts_dir}}/zed.py {{temp_dir}}/zed/themes/catppuccin-blue.json > {{dist_dir}}/zed/{{theme_name}}.json
+
+  echo ' done!'
+
 @build_zellij:
   echo -n 'Building zellij...'
 
@@ -120,5 +131,6 @@ build: prepare \
   build_helix \
   build_lazygit \
   build_yazi \
+  build_zed \
   build_zellij \
   clean
