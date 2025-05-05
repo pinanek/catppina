@@ -54,8 +54,10 @@ temp_dir := justfile_directory() / '.temp'
   mkdir -p {{dist_dir}}/fzf
 
   cd {{temp_dir}}/fzf \
-    && whiskers fzf.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  python3 {{scripts_dir}}/fzf.py {{temp_dir}}/fzf/README.md > {{dist_dir}}/fzf/{{theme_name}}.fish
+    && whiskers templates/fish.tera --color-overrides '{{color_overrides_without_hashtag}}'
+  cat {{temp_dir}}/fzf/themes/catppuccin-fzf-mocha.fish | sed "s/-Ux/-gx/" > {{dist_dir}}/fzf/{{theme_name}}.fish
+  
+  # python3 {{scripts_dir}}/fzf.py {{temp_dir}}/fzf/README.md > {{dist_dir}}/fzf/{{theme_name}}.fish
 
   echo ' done!'
 
