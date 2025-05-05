@@ -1,6 +1,6 @@
 set -gx FZF_DEFAULT_OPTS "\
---color=bg+:#212122,bg:#19191a,spinner:#ffcdc7,hl:#f88d8e \
---color=fg:#c3c3c4,header:#f88d8e,info:#b5ccff,pointer:#ffcdc7 \
---color=marker:#c1d0f2,fg+:#c3c3c4,prompt:#b5ccff,hl+:#f88d8e \
+--color=bg+:#212122,bg:#19191A,spinner:#FFCDC7,hl:#F88D8E \
+--color=fg:#C3C3C4,header:#F88D8E,info:#B5CCFF,pointer:#FFCDC7 \
+--color=marker:#C1D0F2,fg+:#C3C3C4,prompt:#B5CCFF,hl+:#F88D8E \
 --color=selected-bg:#323233 \
---color=border:#212122,label:#c3c3c4"
+--color=border:#212122,label:#C3C3C4"
