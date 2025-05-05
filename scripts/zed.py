@@ -13,9 +13,11 @@ def get(content: str) -> str:
             new_theme = theme
             new_theme["name"] = "Catppuccin Mocha (Catppina)"
 
-    only_mocha_themes = [theme for theme in themes if "Catppuccin Mocha" in theme["name"]]
+    only_mocha_themes = [
+        theme for theme in themes if "Catppuccin Mocha" in theme["name"]
+    ]
 
-    new_config = { "themes": only_mocha_themes, **config }
+    new_config = {"themes": only_mocha_themes, **config}
 
     return json.dumps(new_config, sort_keys=True, indent=2)
 

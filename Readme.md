@@ -4,8 +4,8 @@ Catppucin ports with my custom color palette.
 
 ## 🌈 Color palette
 
-| Name      |  Color  |                 Preview                 |
-| --------- | :-----: | :-------------------------------------: |
+| Name      |   Color   |                 Preview                 |
+| --------- | :-------: | :-------------------------------------: |
 | rosewater | `#ffcdc7` | <img src="assets/colors/rosewater.svg"> |
 | flamingo  | `#ffafaf` | <img src="assets/colors/flamingo.svg">  |
 | pink      | `#e99cba` |   <img src="assets/colors/pink.svg">    |
