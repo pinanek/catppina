@@ -692,7 +692,7 @@
         "unreachable.background": "#f88d8e1f",
         "unreachable.border": "#f88d8e",
         "version_control.added": "#7fc7a4",
-        "version_control.added_background": "$7fc7a426",
+        "version_control.added_background": "#7fc7a426",
         "version_control.conflict": "#fbc19d",
         "version_control.conflict_background": "#fbc19d26",
         "version_control.deleted": "#f88d8e",
