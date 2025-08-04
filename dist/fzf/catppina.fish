@@ -3,4 +3,4 @@ set -gx FZF_DEFAULT_OPTS "\
 --color=fg:#C3C3C4,header:#F88D8E,info:#B5CCFF,pointer:#FFCDC7 \
 --color=marker:#C1D0F2,fg+:#C3C3C4,prompt:#B5CCFF,hl+:#F88D8E \
 --color=selected-bg:#323233 \
---color=border:#212122,label:#C3C3C4"
+--color=border:#636364,label:#C3C3C4"
