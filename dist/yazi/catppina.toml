@@ -36,8 +36,8 @@ unset_main  = { fg = "#19191a", bg = "#ffafaf", bold = true }
 unset_alt   = { fg = "#ffafaf", bg = "#212122"}
 
 [status]
-separator_open  = ""
-separator_close = ""
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 progress_label  = { fg = "#ffffff", bold = true }
 progress_normal = { fg = "#9ccfe9", bg = "#323233" }
