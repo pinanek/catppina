@@ -42,8 +42,6 @@ Catppucin ports with my custom color palette.
 - [➿ helix](dist/helix/)
 - [🍴 lazygit](dist/lazygit/)
 - [💥 yazi](dist/yazi/)
-- [🦀 zed](dist/zed/)
-- [🐙 zellij](dist/zellij/)
 
 ## ❤️ Credits
 
