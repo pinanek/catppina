@@ -54,7 +54,7 @@ temp_dir := justfile_directory() / '.temp'
   mkdir -p {{dist_dir}}/fzf
 
   cd {{temp_dir}}/fzf \
-    && whiskers templates/fish.tera --color-overrides '{{color_overrides_without_hashtag}}'
+    && whiskers fzf.tera --color-overrides '{{color_overrides_without_hashtag}}'
   mv {{temp_dir}}/fzf/themes/catppuccin-fzf-mocha.fish {{dist_dir}}/fzf/{{theme_name}}.fish
 
   echo ' done!'
