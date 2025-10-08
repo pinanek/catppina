@@ -101,6 +101,17 @@ temp_dir := justfile_directory() / '.temp'
 
   echo ' done!'
 
+@build_zsh_syntax_highlighting:
+  echo -n 'Building zsh-syntax-highlighting...'
+
+  mkdir -p {{dist_dir}}/zsh-syntax-highlighting
+
+  cd {{temp_dir}}/zsh-syntax-highlighting \
+    && whiskers zsh-syntax-highlighting.tera --color-overrides '{{color_overrides_without_hashtag}}'
+  mv {{temp_dir}}/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh {{dist_dir}}/zsh-syntax-highlighting/{{theme_name}}.zsh
+
+  echo ' done!'
+
 build: prepare \
   build_bat \
   build_fish \
@@ -109,4 +120,5 @@ build: prepare \
   build_helix \
   build_lazygit \
   build_yazi \
+  build_zsh_syntax_highlighting
   clean
