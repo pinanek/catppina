@@ -120,5 +120,5 @@ build: prepare \
   build_helix \
   build_lazygit \
   build_yazi \
-  build_zsh_syntax_highlighting
+  build_zsh_syntax_highlighting \
   clean
