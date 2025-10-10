@@ -70,6 +70,17 @@ temp_dir := justfile_directory() / '.temp'
 
   echo ' done!'
 
+@build_gitui:
+  echo -n 'Building gitui...'
+
+  mkdir -p {{dist_dir}}/gitui
+
+  cd {{temp_dir}}/gitui \
+    && whiskers gitui.tera --color-overrides '{{color_overrides_without_hashtag}}'
+  mv {{temp_dir}}/gitui/themes/catppuccin-mocha.ron {{dist_dir}}/gitui/{{theme_name}}.ron
+
+  echo ' done!'
+
 @build_helix:
   echo -n 'Building helix...'
 
@@ -117,6 +128,7 @@ build: prepare \
   build_fish \
   build_fzf \
   build_ghostty \
+  build_gitui \
   build_helix \
   build_lazygit \
   build_yazi \

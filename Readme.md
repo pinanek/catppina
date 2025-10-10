@@ -39,6 +39,7 @@ Catppucin ports with my custom color palette.
 - [🐟 fish](dist/fish/)
 - [🌸 fzf](dist/fzf/)
 - [👻 ghostty](dist/ghostty/)
+- [🍴 gitui](dist/gitui/)
 - [➿ helix](dist/helix/)
 - [🍴 lazygit](dist/lazygit/)
 - [💥 yazi](dist/yazi/)
