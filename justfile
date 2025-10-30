@@ -101,6 +101,22 @@ temp_dir := justfile_directory() / '.temp'
     && whiskers lazygit.tera --color-overrides '{{color_overrides_without_hashtag}}'
   mv {{temp_dir}}/lazygit/themes/{{theme_variant}}/{{theme_accent}}.yml {{dist_dir}}/lazygit/{{theme_name}}.yml
 
+@build_spotify-player:
+  echo -n 'Building spotify-player...'
+
+  mkdir -p {{dist_dir}}/spotify-player
+
+  cd {{temp_dir}}/spotify-player \
+    && whiskers spotify-player.tera --color-overrides '{{color_overrides_without_hashtag}}'
+
+  awk '
+    /^\[\[themes\]\]/ {in_block=0}
+    /\[\[themes\]\]/ && /name *= *"Catppuccin-mocha"/ {in_block=1; print; next}
+    in_block {print}
+  ' {{temp_dir}}/spotify-player/theme.toml \
+  | sed 's/name = "Catppuccin-mocha"/name = "catppina"/' \
+  > {{dist_dir}}/spotify-player/theme.toml
+
 @build_yazi:
   echo -n 'Building yazi...'
 
@@ -131,6 +147,7 @@ build: prepare \
   build_gitui \
   build_helix \
   build_lazygit \
+  build_spotify-player \
   build_yazi \
   build_zsh_syntax_highlighting \
   clean

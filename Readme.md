@@ -42,6 +42,7 @@ Catppucin ports with my custom color palette.
 - [🍴 gitui](dist/gitui/)
 - [➿ helix](dist/helix/)
 - [🍴 lazygit](dist/lazygit/)
+- [🎧 spotify-player](dist/spotify-player/)
 - [💥 yazi](dist/yazi/)
 - [🪗 zsh-syntax-highlighting](dist/zsh-syntax-highlighting/)
 

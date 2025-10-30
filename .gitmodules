@@ -25,3 +25,6 @@
 [submodule "ports/gitui"]
 	path = ports/gitui
 	url = https://github.com/catppuccin/gitui
+[submodule "ports/spotify-player"]
+	path = ports/spotify-player
+	url = https://github.com/catppuccin/spotify-player
