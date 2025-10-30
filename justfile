@@ -109,15 +109,8 @@ temp_dir := justfile_directory() / '.temp'
 	cd {{temp_dir}}/spotify-player && \
 	  whiskers spotify-player.tera --color-overrides '{{color_overrides_without_hashtag}}'
 
-	awk '
-		/^\[\[themes\]\]/ {
-			if (found) print buf;
-			buf = $0; found = 0; next;
-		}
-		/name *= *"Catppuccin-mocha"/ { found = 1; }
-		{ buf = buf "\n" $0 }
-		END { if (found) print buf }
-	' {{temp_dir}}/spotify-player/theme.toml \
+	awk '/^\[\[themes\]\]/{if(found)print buf; buf=$0; found=0; next} /name *= *"Catppuccin-mocha"/{found=1} {buf=buf "\n" $0} END{if(found)print buf}' \
+	  {{temp_dir}}/spotify-player/theme.toml \
 	| sed 's/name = "Catppuccin-mocha"/name = "catppina"/' \
 	> {{dist_dir}}/spotify-player/theme.toml
 
