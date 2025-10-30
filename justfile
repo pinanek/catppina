@@ -102,20 +102,24 @@ temp_dir := justfile_directory() / '.temp'
   mv {{temp_dir}}/lazygit/themes/{{theme_variant}}/{{theme_accent}}.yml {{dist_dir}}/lazygit/{{theme_name}}.yml
 
 @build_spotify-player:
-  @echo -n 'Building spotify-player...'
+	@echo -n 'Building spotify-player...'
 
-  # Ensure output dir exists
-  mkdir -p {{dist_dir}}/spotify-player
+	mkdir -p {{dist_dir}}/spotify-player
 
-  # Render theme source
-  cd {{temp_dir}}/spotify-player && \
-    whiskers spotify-player.tera --color-overrides '{{color_overrides_without_hashtag}}'
+	cd {{temp_dir}}/spotify-player && \
+	  whiskers spotify-player.tera --color-overrides '{{color_overrides_without_hashtag}}'
 
-  # Extract only Catppuccin-mocha and rename to Catppina
-  awk '/^\[\[themes\]\]/{in=0} /\[\[themes\]\]/ && /name *= *"Catppuccin-mocha"/{in=1; print; next} in{print}' \
-    {{temp_dir}}/spotify-player/theme.yml \
-  | sed 's/name = "Catppuccin-mocha"/name = "Catppina"/' \
-  > {{dist_dir}}/spotify-player/theme.toml
+	awk '
+		/^\[\[themes\]\]/ {
+			if (found) print buf;
+			buf = $0; found = 0; next;
+		}
+		/name *= *"Catppuccin-mocha"/ { found = 1; }
+		{ buf = buf "\n" $0 }
+		END { if (found) print buf }
+	' {{temp_dir}}/spotify-player/theme.toml \
+	| sed 's/name = "Catppuccin-mocha"/name = "catppina"/' \
+	> {{dist_dir}}/spotify-player/theme.toml
 
 @build_yazi:
   echo -n 'Building yazi...'
