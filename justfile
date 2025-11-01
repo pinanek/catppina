@@ -98,7 +98,7 @@ temp_dir := justfile_directory() / '.temp'
 @build_lazygit:
     just --justfile '{{ justfile() }}' _run_build_whiskers \
       'lazygit' \
-      'themes/{{ theme_variant }}/{{ theme_accent }}.yml' \
+      'themes-mergable/{{ theme_variant }}/{{ theme_accent }}.yml' \
       'yml'
 
 @build_yazi:
