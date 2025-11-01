@@ -8,7 +8,7 @@ def resolve_path(path: str) -> str:
 
 
 def get_color_palette() -> dict[str, str]:
-    with open(resolve_path("color_overrides.json"), "r") as f:
+    with open(resolve_path("colors.json"), "r") as f:
         color_overrides_content = json.load(f)
 
     return color_overrides_content["mocha"]

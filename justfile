@@ -1,161 +1,102 @@
 _default:
     @just --list
 
-theme_name := 'catppina'
-
+theme := 'catppina'
 theme_variant := 'mocha'
 theme_accent := 'blue'
-
-color_overrides_file := justfile_directory() / 'color_overrides.json'
-color_overrides := shell('echo $(cat $1)', color_overrides_file)
-color_overrides_without_hashtag := shell("echo $(echo $1 | sed 's/#//g')", color_overrides)
-
-scripts_dir := justfile_directory() / 'scripts'
+colors_file := justfile_directory() / 'colors.json'
+colors := shell('echo $(cat $1)', colors_file)
+colors_nh := shell("echo $(echo $1 | sed 's/#//g')", colors)
 dist_dir := justfile_directory() / 'dist'
 temp_dir := justfile_directory() / '.temp'
 
+# Utils
+
+@_build target cmd src ext:
+    echo -n "Building {{ target }}..."
+
+    mkdir -p {{ dist_dir }}/{{ target }}
+    cd {{ temp_dir }}/{{ target }} && {{ cmd }}
+    mv "{{ temp_dir }}/{{ target }}/{{ src }}" "{{ dist_dir }}/{{ target }}/{{ theme }}.{{ ext }}"
+
+    echo " done!"
+
+# Recipes
+
 @prepare:
-  echo -n 'Preparing...'
+    echo -n 'Preparing...'
 
-  rm -rf {{temp_dir}}
-  cp -r ports {{temp_dir}}
+    rm -rf {{ temp_dir }}
+    cp -r ports {{ temp_dir }}
 
-  rm -rf {{dist_dir}}
+    rm -rf {{ dist_dir }}
 
-  echo ' done!'
+    echo ' done!'
 
 @clean:
-  rm -rf {{temp_dir}}
+    rm -rf {{ temp_dir }}
 
 @build_bat:
-  echo -n 'Building bat...'
-
-  mkdir -p {{dist_dir}}/bat
-
-  cd {{temp_dir}}/bat && deno task build --color-overrides '{{color_overrides}}'
-  mv {{temp_dir}}/bat/themes/Catppuccin\ Mocha.tmTheme {{dist_dir}}/bat/{{theme_name}}.tmTheme
-
-  echo ' done!'
+    @_build \
+      bat \
+      "deno task build --color-overrides '{{ colors }}'" \
+      "themes/Catppuccin Mocha.tmTheme" \
+      tmTheme
 
 @build_btop:
-  echo -n 'Building btop...'
-
-  mkdir -p {{dist_dir}}/btop
-
-  cd {{temp_dir}}/btop && whiskers btop.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/btop/themes/catppuccin_mocha.theme {{dist_dir}}/btop/{{theme_name}}.theme
-
-  echo ' done!'
+    @_build \
+      btop \
+      "whiskers btop.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/catppuccin_mocha.theme" \
+      theme
 
 @build_fish:
-  echo -n 'Building fish...'
-
-  mkdir -p {{dist_dir}}/fish
-
-  cd {{temp_dir}}/fish \
-    && whiskers fish.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/fish/themes/Catppuccin\ Mocha.theme {{dist_dir}}/fish/{{theme_name}}.theme
-
-  echo ' done!'
+    @_build \
+      fish \
+      "whiskers fish.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/Catppuccin Mocha.theme" \
+      theme
 
 @build_fzf:
-  echo -n 'Building fzf...'
-
-  mkdir -p {{dist_dir}}/fzf
-
-  cd {{temp_dir}}/fzf \
-    && whiskers fzf.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/fzf/themes/catppuccin-fzf-mocha.fish {{dist_dir}}/fzf/{{theme_name}}.fish
-
-  echo ' done!'
+    @_build \
+      fzf \
+      "whiskers fzf.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/catppuccin-fzf-mocha.fish" \
+      fish
 
 @build_ghostty:
-  echo -n 'Building ghostty...'
-
-  mkdir -p {{dist_dir}}/ghostty
-
-  cd {{temp_dir}}/ghostty \
-    && whiskers ghostty.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/ghostty/themes/catppuccin-mocha.conf {{dist_dir}}/ghostty/{{theme_name}}.conf
-
-  echo ' done!'
-
-@build_gitui:
-  echo -n 'Building gitui...'
-
-  mkdir -p {{dist_dir}}/gitui
-
-  cd {{temp_dir}}/gitui \
-    && whiskers gitui.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/gitui/themes/catppuccin-mocha.ron {{dist_dir}}/gitui/{{theme_name}}.ron
-
-  echo ' done!'
+    @_build \
+      ghostty \
+      "whiskers ghostty.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/catppuccin-mocha.conf" \
+      conf
 
 @build_helix:
-  echo -n 'Building helix...'
-
-  mkdir -p {{dist_dir}}/helix
-
-  cd {{temp_dir}}/helix \
-    && whiskers helix.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/helix/themes/default/catppuccin_mocha.toml {{dist_dir}}/helix/{{theme_name}}.toml
-
-  echo ' done!'
+    @_build \
+      helix \
+      "whiskers helix.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/default/catppuccin_mocha.toml" \
+      toml
 
 @build_lazygit:
-  echo -n 'Building lazygit...'
-
-  mkdir -p {{dist_dir}}/lazygit
-
-  cd {{temp_dir}}/lazygit \
-    && whiskers lazygit.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/lazygit/themes/{{theme_variant}}/{{theme_accent}}.yml {{dist_dir}}/lazygit/{{theme_name}}.yml
-
-@build_spotify-player:
-	@echo -n 'Building spotify-player...'
-
-	mkdir -p {{dist_dir}}/spotify-player
-
-	cd {{temp_dir}}/spotify-player && \
-	  whiskers spotify-player.tera --color-overrides '{{color_overrides_without_hashtag}}'
-
-	awk '/^\[\[themes\]\]/{if(found)print buf; buf=$0; found=0; next} /name *= *"Catppuccin-mocha"/{found=1} {buf=buf "\n" $0} END{if(found)print buf}' \
-	  {{temp_dir}}/spotify-player/theme.toml \
-	| sed 's/name = "Catppuccin-mocha"/name = "catppina"/' \
-	> {{dist_dir}}/spotify-player/theme.toml
+    @_build \
+      lazygit \
+      "whiskers lazygit.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/{{ theme_variant }}/{{ theme_accent }}.yml" \
+      yml
 
 @build_yazi:
-  echo -n 'Building yazi...'
-
-  mkdir -p {{dist_dir}}/yazi
-
-  cd {{temp_dir}}/yazi \
-    && whiskers yazi.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/yazi/themes/{{theme_variant}}/catppuccin-mocha-{{theme_accent}}.toml {{dist_dir}}/yazi/{{theme_name}}.toml
-
-  echo ' done!'
+    @_build \
+      yazi \
+      "whiskers yazi.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/{{ theme_variant }}/catppuccin-mocha-{{ theme_accent }}.toml" \
+      toml
 
 @build_zsh_syntax_highlighting:
-  echo -n 'Building zsh-syntax-highlighting...'
+    @_build \
+      zsh-syntax-highlighting \
+      "whiskers zsh-syntax-highlighting.tera --color-overrides '{{ colors_nh }}'" \
+      "themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" \
+      zsh
 
-  mkdir -p {{dist_dir}}/zsh-syntax-highlighting
-
-  cd {{temp_dir}}/zsh-syntax-highlighting \
-    && whiskers zsh-syntax-highlighting.tera --color-overrides '{{color_overrides_without_hashtag}}'
-  mv {{temp_dir}}/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh {{dist_dir}}/zsh-syntax-highlighting/{{theme_name}}.zsh
-
-  echo ' done!'
-
-build: prepare \
-  build_bat \
-  build_btop \
-  build_fish \
-  build_fzf \
-  build_ghostty \
-  build_gitui \
-  build_helix \
-  build_lazygit \
-  build_spotify-player \
-  build_yazi \
-  build_zsh_syntax_highlighting \
-  clean
+build: prepare build_bat build_btop build_fish build_fzf build_ghostty build_helix build_lazygit build_yazi build_zsh_syntax_highlighting clean
