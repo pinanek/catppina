@@ -22,17 +22,13 @@ jobs:
         with:
           submodules: recursive
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: 3.13
-
       - uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
       - uses: extractions/setup-just@v2
         with:
-          just-version: 1.38.0
+          just-version: 1.43.0
 
       - uses: supplypike/setup-bin@v4
         with:
