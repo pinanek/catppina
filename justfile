@@ -81,7 +81,7 @@ temp_dir := justfile_directory() / '.temp'
     just --justfile '{{ justfile() }}' _run_build_whiskers \
       'fzf' \
       'themes/catppuccin-fzf-mocha.sh' \
-      'fish'
+      'sh'
 
 @build_ghostty:
     just --justfile '{{ justfile() }}' _run_build_whiskers \
