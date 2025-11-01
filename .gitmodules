@@ -31,3 +31,6 @@
 [submodule "ports/btop"]
 	path = ports/btop
 	url = https://github.com/catppuccin/btop
+[submodule "ports/delta"]
+	path = ports/delta
+	url = https://github.com/catppuccin/delta

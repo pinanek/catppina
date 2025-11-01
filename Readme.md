@@ -37,6 +37,7 @@ Catppucin ports with my custom color palette.
 
 - [🦇 bat](dist/bat/)
 - [🧙‍♂️ btop](dist/btop/)
+- [➕ delta](dist/delta/)
 - [🐟 fish](dist/fish/)
 - [🌸 fzf](dist/fzf/)
 - [👻 ghostty](dist/ghostty/)

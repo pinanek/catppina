@@ -20,6 +20,15 @@ temp_dir := justfile_directory() / '.temp'
 
     echo " done!"
 
+@_run_build_python target src ext:
+    echo -n "Building {{ target }}..."
+
+    mkdir -p {{ dist_dir }}/{{ target }}
+    cd {{ temp_dir }}/{{ target }} && whiskers {{ target }}.tera --color-overrides {{ quote(colors_nh) }}
+    python3 scripts/{{ target }}.py "{{ temp_dir }}/{{ target }}/{{ src }}" {{ theme }} > "{{ dist_dir }}/{{ target }}/{{ theme }}.{{ ext }}"
+
+    echo " done!"
+
 @_run_build_whiskers target src ext:
     echo -n "Building {{ target }}..."
 
@@ -55,6 +64,12 @@ temp_dir := justfile_directory() / '.temp'
       'btop' \
       'themes/catppuccin_mocha.theme' \
       'theme'
+
+@build_delta:
+    just --justfile "{{ justfile() }}" _run_build_python \
+      'delta' \
+      'catppuccin.gitconfig' \
+      'gitconfig'
 
 @build_fish:
     just --justfile '{{ justfile() }}' _run_build_whiskers \
@@ -98,4 +113,5 @@ temp_dir := justfile_directory() / '.temp'
       'themes/catppuccin_mocha-zsh-syntax-highlighting.zsh' \
       'zsh'
 
-build: prepare build_bat build_btop build_fish build_fzf build_ghostty build_helix build_lazygit build_yazi build_zsh_syntax_highlighting clean
+# build: prepare build_bat build_btop build_fish build_fzf build_ghostty build_helix build_lazygit build_yazi build_zsh_syntax_highlighting clean
+build: prepare build_delta clean
