@@ -12,7 +12,7 @@ temp_dir := justfile_directory() / '.temp'
 
 # Utils
 
-@_build target cmd src ext:
+@_run_build target cmd src ext:
     echo -n "Building {{ target }}..."
 
     mkdir -p {{ dist_dir }}/{{ target }}
@@ -37,63 +37,63 @@ temp_dir := justfile_directory() / '.temp'
     rm -rf {{ temp_dir }}
 
 @build_bat:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       bat \
       "deno task build --color-overrides '{{ colors }}'" \
       "themes/Catppuccin Mocha.tmTheme" \
       tmTheme
 
 @build_btop:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       btop \
       "whiskers btop.tera --color-overrides '{{ colors_nh }}'" \
       "themes/catppuccin_mocha.theme" \
       theme
 
 @build_fish:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       fish \
       "whiskers fish.tera --color-overrides '{{ colors_nh }}'" \
       "themes/Catppuccin Mocha.theme" \
       theme
 
 @build_fzf:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       fzf \
       "whiskers fzf.tera --color-overrides '{{ colors_nh }}'" \
       "themes/catppuccin-fzf-mocha.fish" \
       fish
 
 @build_ghostty:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       ghostty \
       "whiskers ghostty.tera --color-overrides '{{ colors_nh }}'" \
       "themes/catppuccin-mocha.conf" \
       conf
 
 @build_helix:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       helix \
       "whiskers helix.tera --color-overrides '{{ colors_nh }}'" \
       "themes/default/catppuccin_mocha.toml" \
       toml
 
 @build_lazygit:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       lazygit \
       "whiskers lazygit.tera --color-overrides '{{ colors_nh }}'" \
       "themes/{{ theme_variant }}/{{ theme_accent }}.yml" \
       yml
 
 @build_yazi:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       yazi \
       "whiskers yazi.tera --color-overrides '{{ colors_nh }}'" \
       "themes/{{ theme_variant }}/catppuccin-mocha-{{ theme_accent }}.toml" \
       toml
 
 @build_zsh_syntax_highlighting:
-    _build \
+    just --justfile "{{justfile()}}" _run_build
       zsh-syntax-highlighting \
       "whiskers zsh-syntax-highlighting.tera --color-overrides '{{ colors_nh }}'" \
       "themes/catppuccin_mocha-zsh-syntax-highlighting.zsh" \
