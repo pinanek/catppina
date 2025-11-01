@@ -37,6 +37,16 @@ temp_dir := justfile_directory() / '.temp'
 
   echo ' done!'
 
+@build_btop:
+  echo -n 'Building btop...'
+
+  mkdir -p {{dist_dir}}/btop
+
+  cd {{temp_dir}}/btop && whiskers btop.tera --color-overrides '{{color_overrides_without_hashtag}}'
+  mv {{temp_dir}}/btop/themes/catppuccin_mocha.theme {{dist_dir}}/btop/{{theme_name}}.theme
+
+  echo ' done!'
+
 @build_fish:
   echo -n 'Building fish...'
 
@@ -138,6 +148,7 @@ temp_dir := justfile_directory() / '.temp'
 
 build: prepare \
   build_bat \
+  build_btop \
   build_fish \
   build_fzf \
   build_ghostty \

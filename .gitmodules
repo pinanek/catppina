@@ -28,3 +28,6 @@
 [submodule "ports/spotify-player"]
 	path = ports/spotify-player
 	url = https://github.com/catppuccin/spotify-player
+[submodule "ports/btop"]
+	path = ports/btop
+	url = https://github.com/catppuccin/btop
