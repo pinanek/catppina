@@ -8,6 +8,7 @@ colors := read(justfile_directory() / 'colors.json')
 colors_nh := shell("echo $(echo $1 | sed 's/#//g')", colors)
 dist_dir := justfile_directory() / 'dist'
 temp_dir := justfile_directory() / '.temp'
+scripts_dir := justfile_directory() / 'scripts'
 
 # Utils
 
@@ -107,10 +108,19 @@ temp_dir := justfile_directory() / '.temp'
       'themes/{{ theme_variant }}/catppuccin-mocha-{{ theme_accent }}.toml' \
       'toml'
 
+@build_zed:
+  echo -n 'Building zed...'
+
+  mkdir -p {{dist_dir}}/zed
+
+  cd {{temp_dir}}/zed \
+    && whiskers zed.tera --color-overrides '{{colors_nh}}'
+  python3 {{scripts_dir}}/zed.py {{temp_dir}}/zed/themes/catppuccin-mauve.json > {{dist_dir}}/zed/{{theme}}.json
+
 @build_zsh_syntax_highlighting:
     just --justfile '{{ justfile() }}' _run_build_whiskers \
       'zsh-syntax-highlighting' \
       'themes/catppuccin_mocha-zsh-syntax-highlighting.zsh' \
       'zsh'
 
-build: prepare build_bat build_btop build_delta build_fish build_fzf build_ghostty build_helix build_lazygit build_yazi build_zsh_syntax_highlighting clean
+build: prepare build_bat build_btop build_delta build_fish build_fzf build_ghostty build_helix build_lazygit build_yazi build_zed build_zsh_syntax_highlighting clean
