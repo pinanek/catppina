@@ -1,8 +1,8 @@
+[app]
+overall = { bg = "#19191a" }
+
 [mgr]
 cwd = { fg = "#7ecebe" }
-
-hovered         = { fg = "#19191a", bg = "#9ccfe9" }
-preview_hovered = { fg = "#19191a", bg = "#c3c3c4" }
 
 find_keyword  = { fg = "#e9cc9c", italic = true }
 find_position = { fg = "#e99cba", bg = "reset", italic = true }
@@ -35,13 +35,18 @@ select_alt  = { fg = "#7fc7a4", bg = "#212122"}
 unset_main  = { fg = "#19191a", bg = "#ffafaf", bold = true }
 unset_alt   = { fg = "#ffafaf", bg = "#212122"}
 
+[indicator]
+parent = { fg = "#19191a", bg = "#c3c3c4" }
+current = { fg = "#19191a", bg = "#9ccfe9" }
+preview = { fg = "#19191a", bg = "#c3c3c4" }
+
 [status]
 sep_left  = { open = "", close = "" }
 sep_right = { open = "", close = "" }
 
 progress_label  = { fg = "#ffffff", bold = true }
-progress_normal = { fg = "#9ccfe9", bg = "#323233" }
-progress_error  = { fg = "#f88d8e", bg = "#323233" }
+progress_normal = { fg = "#7fc7a4", bg = "#323233" }
+progress_error  = { fg = "#e9cc9c", bg = "#f88d8e" }
 
 perm_type  = { fg = "#9ccfe9" }
 perm_read  = { fg = "#e9cc9c" }
@@ -63,7 +68,7 @@ inactive = {}
 [confirm]
 border     = { fg = "#9ccfe9" }
 title      = { fg = "#9ccfe9" }
-content    = {}
+body       = {}
 list       = {}
 btn_yes    = { reversed = true }
 btn_no     = {}
@@ -74,7 +79,7 @@ border = { fg = "#9ccfe9" }
 [tasks]
 border  = { fg = "#9ccfe9" }
 title   = {}
-hovered = { underline = true }
+hovered = { fg = "#e99cba", bold = true }
 
 [which]
 mask            = { bg = "#212122" }
@@ -109,9 +114,19 @@ rules = [
 	# Documents
 	{ mime = "application/{pdf,doc,rtf}", fg = "#7fc7a4" },
 
+	# Virtual file system
+	{ mime = "vfs/{absent,stale}", fg = "#323233" },
+
+	# Special file
+	{ url = "*", is = "orphan", bg = "#f88d8e" },
+	{ url = "*", is = "exec"  , fg = "#7fc7a4" },
+
+	# Dummy file
+	{ url = "*", is = "dummy", bg = "#f88d8e" },
+	{ url = "*/", is = "dummy", bg = "#f88d8e" },
+
 	# Fallback
-	{ name = "*", fg = "#c3c3c4" },
-	{ name = "*/", fg = "#9ccfe9" }
+	{ url = "*/", fg = "#9ccfe9" }
 ]
 
 [spot]
