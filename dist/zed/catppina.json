@@ -8,13 +8,13 @@
       "name": "Catppuccin Mocha (Catppina)",
       "style": {
         "accents": [
-          "#b8caf366",
-          "#c1cde966",
-          "#9dcede66",
-          "#8dc6aa66",
-          "#e1caa466",
-          "#f0c1a566",
-          "#ed989966"
+          "#b5ccff",
+          "#c1d0f2",
+          "#94d1e5",
+          "#7fc7a4",
+          "#e9cc9c",
+          "#fbc19d",
+          "#f88d8e"
         ],
         "background": "#262628",
         "background.appearance": "opaque",
@@ -98,7 +98,7 @@
         "panel.indent_guide": "#21212299",
         "panel.indent_guide_active": "#434344",
         "panel.indent_guide_hover": "#b5ccff",
-        "panel.overlay_background": "#101011",
+        "panel.overlay_background": "#141415",
         "players": [
           {
             "background": "#ffcdc7",
@@ -106,39 +106,39 @@
             "selection": "#93939440"
           },
           {
-            "background": "#b8caf3",
-            "cursor": "#b8caf3",
-            "selection": "#b8caf340"
+            "background": "#b5ccff",
+            "cursor": "#b5ccff",
+            "selection": "#b5ccff40"
           },
           {
-            "background": "#c1cde9",
-            "cursor": "#c1cde9",
-            "selection": "#c1cde940"
+            "background": "#c1d0f2",
+            "cursor": "#c1d0f2",
+            "selection": "#c1d0f240"
           },
           {
-            "background": "#9dcede",
-            "cursor": "#9dcede",
-            "selection": "#9dcede40"
+            "background": "#94d1e5",
+            "cursor": "#94d1e5",
+            "selection": "#94d1e540"
           },
           {
-            "background": "#8dc6aa",
-            "cursor": "#8dc6aa",
-            "selection": "#8dc6aa40"
+            "background": "#7fc7a4",
+            "cursor": "#7fc7a4",
+            "selection": "#7fc7a440"
           },
           {
-            "background": "#e1caa4",
-            "cursor": "#e1caa4",
-            "selection": "#e1caa440"
+            "background": "#e9cc9c",
+            "cursor": "#e9cc9c",
+            "selection": "#e9cc9c40"
           },
           {
-            "background": "#f0c1a5",
-            "cursor": "#f0c1a5",
-            "selection": "#f0c1a540"
+            "background": "#fbc19d",
+            "cursor": "#fbc19d",
+            "selection": "#fbc19d40"
           },
           {
-            "background": "#ed9899",
-            "cursor": "#ed9899",
-            "selection": "#ed989940"
+            "background": "#f88d8e",
+            "cursor": "#f88d8e",
+            "selection": "#f88d8e40"
           }
         ],
         "predictive": "#636364",
@@ -153,7 +153,8 @@
         "scrollbar.thumb.hover_background": "#636364",
         "scrollbar.track.background": "#101011",
         "scrollbar.track.border": "#c3c3c412",
-        "search.match_background": "#7ecebe33",
+        "search.active_match_background": "#f88d8e4d",
+        "search.match_background": "#7ecebe4d",
         "status_bar.background": "#101011",
         "success": "#7fc7a4",
         "success.background": "#7fc7a41f",
@@ -205,6 +206,11 @@
             "font_style": "italic",
             "font_weight": null
           },
+          "comment.info": {
+            "color": "#7ecebe",
+            "font_style": "italic",
+            "font_weight": null
+          },
           "comment.note": {
             "color": "#ffcdc7",
             "font_style": "italic",
@@ -212,6 +218,11 @@
           },
           "comment.todo": {
             "color": "#ffafaf",
+            "font_style": "italic",
+            "font_weight": null
+          },
+          "comment.warn": {
+            "color": "#e9cc9c",
             "font_style": "italic",
             "font_weight": null
           },
@@ -708,14 +719,22 @@
         "version_control.modified": "#e9cc9c",
         "version_control.renamed": "#94d1e5",
         "vim.helix_normal.background": "#ffcdc7",
+        "vim.helix_normal.foreground": "#101011",
         "vim.helix_select.background": "#c1d0f2",
+        "vim.helix_select.foreground": "#101011",
         "vim.insert.background": "#7fc7a4",
+        "vim.insert.foreground": "#101011",
         "vim.mode.text": "#101011",
         "vim.normal.background": "#ffcdc7",
+        "vim.normal.foreground": "#101011",
         "vim.replace.background": "#f1a290",
+        "vim.replace.foreground": "#101011",
         "vim.visual.background": "#c1d0f2",
+        "vim.visual.foreground": "#101011",
         "vim.visual_block.background": "#b5ccff",
+        "vim.visual_block.foreground": "#101011",
         "vim.visual_line.background": "#c1d0f2",
+        "vim.visual_line.foreground": "#101011",
         "warning": "#e9cc9c",
         "warning.background": "#e9cc9c1f",
         "warning.border": "#e9cc9c"
