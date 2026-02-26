@@ -35,7 +35,7 @@ jobs:
 
       - name: Install whiskers
         run: |
-          cargo install whiskers --version 2.6.0
+          cargo install catppuccin-whiskers --version 2.6.0
           echo "$HOME/.cargo/bin" >> "$GITHUB_PATH"
 
       - name: Build themes
