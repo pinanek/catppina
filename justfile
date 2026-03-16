@@ -75,7 +75,7 @@ scripts_dir := justfile_directory() / 'scripts'
 @build_fish:
     just --justfile '{{ justfile() }}' _run_build_whiskers \
       'fish' \
-      'themes/Catppuccin Mocha.theme' \
+      'themes/catppuccin-mocha.theme' \
       'theme'
 
 @build_fzf:
