@@ -18,20 +18,24 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Clone repository
+        uses: actions/checkout@v5
         with:
           submodules: recursive
 
-      - uses: denoland/setup-deno@v2
+      - name: Install Deno
+        uses: denoland/setup-deno@v2
         with:
           deno-version: v2.x
 
-      - uses: extractions/setup-just@v2
-        with:
-          just-version: 1.43.0
+      - name: Install Just
+        uses: extractions/setup-just@v3
 
-      - name: Set up Rust
-        uses: dtolnay/rust-toolchain@stable
+      - name: Setup Rust toolchain
+        uses: actions-rust-lang/setup-rust-toolchain@v1
+
+      - name: Install Cargo Binstall
+        uses: cargo-bins/cargo-binstall@main
 
       - name: Install whiskers
         run: |
