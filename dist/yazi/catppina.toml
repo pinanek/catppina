@@ -104,15 +104,14 @@ title_error = { fg = "#f88d8e" }
 [filetype]
 rules = [
 	# Media
-	{ mime = "image/*", fg = "#7ecebe" },
-	{ mime = "{audio,video}/*", fg = "#e9cc9c" },
+	{ mime = "image/*", fg = "#e9cc9c" },
+	{ mime = "{audio,video}/*", fg = "#e99cba" },
 
 	# Archives
-	{ mime = "application/*zip", fg = "#e99cba" },
-	{ mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#e99cba" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#f88d8e" },
 
 	# Documents
-	{ mime = "application/{pdf,doc,rtf}", fg = "#7fc7a4" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#8fc9e6" },
 
 	# Virtual file system
 	{ mime = "vfs/{absent,stale}", fg = "#323233" },
@@ -126,7 +125,7 @@ rules = [
 	{ url = "*/", is = "dummy", bg = "#f88d8e" },
 
 	# Fallback
-	{ url = "*/", fg = "#9ccfe9" }
+	{ url = "*/", fg = "#9ccfe9" },
 ]
 
 [spot]
@@ -134,3 +133,37 @@ border = { fg = "#9ccfe9" }
 title  = { fg = "#9ccfe9" }
 tbl_cell = { fg = "#9ccfe9", reversed = true }
 tbl_col = { bold = true }
+
+[icon]
+dirs = [
+	{ name = ".config", text = "", fg = "#9ccfe9" },
+	{ name = ".git", text = "", fg = "#9ccfe9" },
+	{ name = ".github", text = "", fg = "#9ccfe9" },
+	{ name = ".npm", text = "", fg = "#9ccfe9" },
+	{ name = "Desktop", text = "", fg = "#9ccfe9" },
+	{ name = "Development", text = "", fg = "#9ccfe9" },
+	{ name = "Documents", text = "", fg = "#9ccfe9" },
+	{ name = "Downloads", text = "", fg = "#9ccfe9" },
+	{ name = "Library", text = "", fg = "#9ccfe9" },
+	{ name = "Movies", text = "", fg = "#9ccfe9" },
+	{ name = "Music", text = "", fg = "#9ccfe9" },
+	{ name = "Pictures", text = "", fg = "#9ccfe9" },
+	{ name = "Public", text = "", fg = "#9ccfe9" },
+	{ name = "Videos", text = "", fg = "#9ccfe9" },
+]
+conds = [
+	# Special files
+	{ if = "orphan", text = "", fg = "#c3c3c4" },
+	{ if = "link", text = "", fg = "#a0a0a1" },
+	{ if = "block", text = "", fg = "#e9cc9c" },
+	{ if = "char", text = "", fg = "#e9cc9c" },
+	{ if = "fifo", text = "", fg = "#e9cc9c" },
+	{ if = "sock", text = "", fg = "#e9cc9c" },
+	{ if = "sticky", text = "", fg = "#e9cc9c" },
+	{ if = "dummy", text = "", fg = "#f88d8e" },
+
+	# Fallback
+	{ if = "dir", text = "", fg = "#9ccfe9" },
+	{ if = "exec", text = "", fg = "#7fc7a4" },
+	{ if = "!dir", text = "", fg = "#c3c3c4" },
+]
