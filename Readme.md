@@ -25,11 +25,11 @@ Generated themes are available in the [`dist`](dist/) directory.
 <table>
 <thead>
 <tr>
-<th width="210px" align="left">Color</th>
+<th width="180px" align="left">Color</th>
 <th width="50px" align="center">HEX</th>
 <th width="150px" align="center">RGB</th>
 <th width="270px" align="center">HSL</th>
-<th width="320px" align="center">OKLCH</th>
+<th width="350px" align="center">OKLCH</th>
 </tr>
 </thead>
 <tbody>
