@@ -15,7 +15,7 @@ scripts_dir := root_dir / 'scripts'
 colors := read(root_dir / 'colors.json')
 colors_no_hash := replace(colors, '#', '')
 
-# Internal recipes
+# Internal utilities
 
 @_prepare_target target:
     rm -rf \
@@ -97,7 +97,7 @@ colors_no_hash := replace(colors, '#', '')
 @clean:
     rm -rf {{ quote(temp_dir) }}
 
-# Targets
+# Build targets
 
 build_bat: (_build_deno \
     'bat' \
@@ -136,12 +136,12 @@ build_helix: (_build_whiskers \
 
 build_lazygit: (_build_whiskers \
     'lazygit' \
-    'themes-mergable/{{ theme_variant }}/{{ theme_accent }}.yml' \
+    ('themes-mergable/' + theme_variant + '/' + theme_accent + '.yml') \
     'yml')
 
 build_yazi: (_build_whiskers \
     'yazi' \
-    'themes/{{ theme_variant }}/catppuccin-mocha-{{ theme_accent }}.toml' \
+    ('themes/' + theme_variant + '/catppuccin-mocha-' + theme_accent + '.toml') \
     'toml')
 
 build_zed: (_build_python \
