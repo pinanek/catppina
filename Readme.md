@@ -26,10 +26,10 @@ Generated themes are available in the [`dist`](dist/) directory.
 <thead>
 <tr>
 <th width="150px" align="left">Color</th>
-<th width="100px" align="center">HEX</th>
+<th width="90px" align="center">HEX</th>
 <th width="230px" align="center">RGB</th>
-<th width="230px" align="center">HSL</th>
-<th width="290px" align="center">OKLCH</th>
+<th width="220px" align="center">HSL</th>
+<th width="310px" align="center">OKLCH</th>
 </tr>
 </thead>
 <tbody>
