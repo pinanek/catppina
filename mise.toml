@@ -2,4 +2,4 @@
 deno = "latest"
 dprint = "latest"
 just = "latest"
-"ubi:catppuccin/whiskers" = "2.5.1"
+"ubi:catppuccin/whiskers" = "2.9.0"
