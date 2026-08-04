@@ -2,7 +2,7 @@ import json
 import sys
 
 
-def get(content: str, variant: str, theme: str) -> str:
+def get(content: str, variant: str, _theme: str) -> str:
     config: dict = json.loads(content)
 
     variant_name = f"Catppuccin {variant.capitalize()}"
@@ -10,7 +10,7 @@ def get(content: str, variant: str, theme: str) -> str:
     themes = [
         {
             **item,
-            "name": theme,
+            "name": f"{variant_name} (Catppina)",
         }
         for item in config.pop("themes")
         if item["name"] == variant_name
