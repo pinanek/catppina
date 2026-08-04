@@ -3,8 +3,13 @@ set default-list := true
 # Configuration
 
 theme := 'catppina'
-theme_variant := 'mocha'
+
+light_variant := 'latte'
+dark_variant := 'mocha'
 theme_accent := 'blue'
+
+theme_light := theme + '_light'
+theme_dark := theme + '_dark'
 
 root_dir := justfile_directory()
 ports_dir := root_dir / 'ports'
@@ -24,31 +29,31 @@ colors_no_hash := replace(colors, '#', '')
 
     mkdir -p \
         {{ quote(temp_dir) }} \
-        {{ quote(dist_dir) }}
+        {{ quote(dist_dir / target) }}
 
     cp -R \
         {{ quote(ports_dir / target) }} \
         {{ quote(temp_dir / target) }}
 
-@_build_deno target source extension: (_prepare_target target)
+@_build_deno target light_source dark_source extension: (_prepare_target target)
     echo -n 'Building {{ target }}...'
-
-    mkdir -p {{ quote(dist_dir / target) }}
 
     cd {{ quote(temp_dir / target) }} && \
         deno task build \
             --color-overrides {{ quote(colors) }}
 
     mv \
-        {{ quote(temp_dir / target / source) }} \
-        {{ quote(dist_dir / target / (theme + '.' + extension)) }}
+        {{ quote(temp_dir / target / light_source) }} \
+        {{ quote(dist_dir / target / (theme_light + '.' + extension)) }}
+
+    mv \
+        {{ quote(temp_dir / target / dark_source) }} \
+        {{ quote(dist_dir / target / (theme_dark + '.' + extension)) }}
 
     echo ' done!'
 
-@_build_whiskers target source extension: (_prepare_target target)
+@_build_whiskers target light_source dark_source extension: (_prepare_target target)
     echo -n 'Building {{ target }}...'
-
-    mkdir -p {{ quote(dist_dir / target) }}
 
     cd {{ quote(temp_dir / target) }} && \
         whiskers \
@@ -56,15 +61,17 @@ colors_no_hash := replace(colors, '#', '')
             --color-overrides {{ quote(colors_no_hash) }}
 
     mv \
-        {{ quote(temp_dir / target / source) }} \
-        {{ quote(dist_dir / target / (theme + '.' + extension)) }}
+        {{ quote(temp_dir / target / light_source) }} \
+        {{ quote(dist_dir / target / (theme_light + '.' + extension)) }}
+
+    mv \
+        {{ quote(temp_dir / target / dark_source) }} \
+        {{ quote(dist_dir / target / (theme_dark + '.' + extension)) }}
 
     echo ' done!'
 
 @_build_python target source extension: (_prepare_target target)
     echo -n 'Building {{ target }}...'
-
-    mkdir -p {{ quote(dist_dir / target) }}
 
     cd {{ quote(temp_dir / target) }} && \
         whiskers \
@@ -74,8 +81,18 @@ colors_no_hash := replace(colors, '#', '')
     python3 \
         {{ quote(scripts_dir / (target + '.py')) }} \
         {{ quote(temp_dir / target / source) }} \
-        {{ quote(theme) }} \
-        > {{ quote(dist_dir / target / (theme + '.' + extension)) }}
+        {{ quote(light_variant) }} \
+        {{ quote(theme_accent) }} \
+        {{ quote(theme_light) }} \
+        > {{ quote(dist_dir / target / (theme_light + '.' + extension)) }}
+
+    python3 \
+        {{ quote(scripts_dir / (target + '.py')) }} \
+        {{ quote(temp_dir / target / source) }} \
+        {{ quote(dark_variant) }} \
+        {{ quote(theme_accent) }} \
+        {{ quote(theme_dark) }} \
+        > {{ quote(dist_dir / target / (theme_dark + '.' + extension)) }}
 
     echo ' done!'
 
@@ -101,11 +118,13 @@ colors_no_hash := replace(colors, '#', '')
 
 build_bat: (_build_deno \
     'bat' \
+    'themes/Catppuccin Latte.tmTheme' \
     'themes/Catppuccin Mocha.tmTheme' \
     'tmTheme')
 
 build_btop: (_build_whiskers \
     'btop' \
+    'themes/catppuccin_latte.theme' \
     'themes/catppuccin_mocha.theme' \
     'theme')
 
@@ -116,32 +135,38 @@ build_delta: (_build_python \
 
 build_fish: (_build_whiskers \
     'fish' \
-    'themes/catppuccin-mocha.theme' \
+    'themes/static/catppuccin-latte.theme' \
+    'themes/static/catppuccin-mocha.theme' \
     'theme')
 
 build_fzf: (_build_whiskers \
     'fzf' \
+    'themes/catppuccin-fzf-latte.sh' \
     'themes/catppuccin-fzf-mocha.sh' \
     'sh')
 
 build_ghostty: (_build_whiskers \
     'ghostty' \
+    'themes/catppuccin-latte.conf' \
     'themes/catppuccin-mocha.conf' \
     'conf')
 
 build_helix: (_build_whiskers \
     'helix' \
+    'themes/default/catppuccin_latte.toml' \
     'themes/default/catppuccin_mocha.toml' \
     'toml')
 
 build_lazygit: (_build_whiskers \
     'lazygit' \
-    ('themes-mergable/' + theme_variant + '/' + theme_accent + '.yml') \
+    ('themes-mergable/' + light_variant + '/' + theme_accent + '.yml') \
+    ('themes-mergable/' + dark_variant + '/' + theme_accent + '.yml') \
     'yml')
 
 build_yazi: (_build_whiskers \
     'yazi' \
-    ('themes/' + theme_variant + '/catppuccin-mocha-' + theme_accent + '.toml') \
+    ('themes/' + light_variant + '/catppuccin-' + light_variant + '-' + theme_accent + '.toml') \
+    ('themes/' + dark_variant + '/catppuccin-' + dark_variant + '-' + theme_accent + '.toml') \
     'toml')
 
 build_zed: (_build_python \
@@ -151,7 +176,8 @@ build_zed: (_build_python \
 
 build_zsh_syntax_highlighting: (_build_whiskers \
     'zsh-syntax-highlighting' \
-    'themes/catppuccin_mocha-zsh-syntax-highlighting.zsh' \
+    ('themes/catppuccin_' + light_variant + '-zsh-syntax-highlighting.zsh') \
+    ('themes/catppuccin_' + dark_variant + '-zsh-syntax-highlighting.zsh') \
     'zsh')
 
 # Aggregate build

@@ -1,0 +1,30 @@
+# name: 'Catppuccin Latte'
+# url: 'https://github.com/catppuccin/fish'
+
+# preferred_background: f7f7f8
+fish_color_normal 303033
+fish_color_command 347aa5
+fish_color_param c85d61
+fish_color_keyword 647fc5
+fish_color_quote 398460
+fish_color_redirection b84f83
+fish_color_end bd6b32
+fish_color_comment 89898e
+fish_color_error c94f55
+fish_color_gray 9d9da2
+fish_color_selection --background=eeeeef
+fish_color_search_match --background=eeeeef
+fish_color_option 398460
+fish_color_operator b84f83
+fish_color_escape bd6252
+fish_color_autosuggestion 9d9da2
+fish_color_cancel c94f55
+fish_color_cwd 8b6b22
+fish_color_user 287f76
+fish_color_host 347aa5
+fish_color_host_remote 398460
+fish_color_status c94f55
+fish_pager_color_progress 9d9da2
+fish_pager_color_prefix b84f83
+fish_pager_color_completion 303033
+fish_pager_color_description 9d9da2

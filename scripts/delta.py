@@ -1,17 +1,20 @@
-import sys
 import re
+import sys
 
 
-def get(content: str, theme: str) -> str:
-    mocha_re = re.compile(
-        r"\[delta \"catppuccin\-mocha\"\](\n.+)*",
+def get(content: str, variant: str, theme: str) -> str:
+    pattern = re.compile(
+        rf'\[delta "catppuccin-{re.escape(variant)}"\](\n.+)*',
         re.MULTILINE,
     )
 
-    match_result = mocha_re.search(content)
+    match_result = pattern.search(content)
     if match_result:
         return re.sub(
-            r"catppuccin[- ]mocha", theme, match_result.group(0), flags=re.IGNORECASE
+            rf"catppuccin[- ]{re.escape(variant)}",
+            theme,
+            match_result.group(0),
+            flags=re.IGNORECASE,
         )
 
     return ""
@@ -19,7 +22,8 @@ def get(content: str, theme: str) -> str:
 
 if __name__ == "__main__":
     file_path = sys.argv[1]
-    theme = sys.argv[2]
+    variant = sys.argv[2]
+    theme = sys.argv[3]
 
-    with open(file_path, "r") as f:
-        print(get(f.read(), theme))
+    with open(file_path) as f:
+        print(get(f.read(), variant, theme))

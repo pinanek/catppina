@@ -1,37 +1,52 @@
 import json
 from pathlib import Path
 
+ROOT_PATH = Path(__file__).parent.parent.resolve()
+COLORS_PATH = ROOT_PATH / "colors.json"
+PREVIEW_SAMPLE_PATH = ROOT_PATH / "assets/colors/sample.svg"
+PREVIEW_OUTPUT_PATH = ROOT_PATH / "assets/colors"
 
-def resolve_path(path: str) -> str:
-    root_path = Path(__file__).parent.parent.resolve()
-    return str(root_path.joinpath(path))
+VARIANT_NAMES = {
+    "latte": "light",
+    "mocha": "dark",
+}
 
 
-def get_color_palette() -> dict[str, str]:
-    with open(resolve_path("colors.json"), "r") as f:
-        color_overrides_content = json.load(f)
-
-    return color_overrides_content["mocha"]
+def get_color_palettes() -> dict[str, dict[str, str]]:
+    with COLORS_PATH.open() as f:
+        return json.load(f)
 
 
 def get_preview_sample() -> str:
-    with open(resolve_path("assets/colors/sample.svg"), "r") as f:
-        return f.read()
+    return PREVIEW_SAMPLE_PATH.read_text()
 
 
-def generate_color_preview(name: str, color: str, preview_sample_content: str) -> None:
-    preview_content = preview_sample_content.replace('fill=""', f'fill="{color}"')
+def generate_color_preview(
+    variant: str,
+    name: str,
+    color: str,
+    preview_sample: str,
+) -> None:
+    output_dir = PREVIEW_OUTPUT_PATH / VARIANT_NAMES[variant]
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    with open(resolve_path(f"assets/colors/{name}.svg"), "w") as f:
-        f.write(preview_content)
+    content = preview_sample.replace('fill=""', f'fill="{color}"')
+
+    (output_dir / f"{name}.svg").write_text(content)
 
 
-def main():
-    color_palette = get_color_palette()
-    preview_sample_content = get_preview_sample()
+def main() -> None:
+    color_palettes = get_color_palettes()
+    preview_sample = get_preview_sample()
 
-    for name, color in color_palette.items():
-        generate_color_preview(name, color, preview_sample_content)
+    for variant, palette in color_palettes.items():
+        for name, color in palette.items():
+            generate_color_preview(
+                variant,
+                name,
+                color,
+                preview_sample,
+            )
 
 
 if __name__ == "__main__":

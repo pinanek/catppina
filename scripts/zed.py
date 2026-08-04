@@ -2,26 +2,34 @@ import json
 import sys
 
 
-def get(content: str) -> str:
+def get(content: str, variant: str, theme: str) -> str:
     config: dict = json.loads(content)
 
-    themes = config.pop("themes")
+    variant_name = f"Catppuccin {variant.capitalize()}"
 
-    new_theme = {}
-    for theme in themes:
-        if theme["name"] == "Catppuccin Mocha":
-            new_theme = theme
-            new_theme["name"] = "Catppuccin Mocha (Catppina)"
-
-    only_mocha_themes = [
-        theme for theme in themes if "Catppuccin Mocha" in theme["name"]
+    themes = [
+        {
+            **item,
+            "name": theme,
+        }
+        for item in config.pop("themes")
+        if item["name"] == variant_name
     ]
 
-    new_config = {"themes": only_mocha_themes, **config}
-
-    return json.dumps(new_config, sort_keys=True, indent=2)
+    return json.dumps(
+        {
+            "themes": themes,
+            **config,
+        },
+        sort_keys=True,
+        indent=2,
+    )
 
 
 if __name__ == "__main__":
-    with open(sys.argv[1], "r") as f:
-        print(get(f.read()))
+    file_path = sys.argv[1]
+    variant = sys.argv[2]
+    theme = sys.argv[3]
+
+    with open(file_path) as f:
+        print(get(f.read(), variant, theme))
