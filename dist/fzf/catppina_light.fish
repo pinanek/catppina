@@ -1,4 +1,4 @@
-set -Ux FZF_DEFAULT_OPTS "\
+set -gx FZF_DEFAULT_OPTS "\
 --color=bg+:#EEEEEF,bg:#F7F7F8,spinner:#C66A5E,hl:#C94F55 \
 --color=fg:#303033,header:#C94F55,info:#647FC5,pointer:#C66A5E \
 --color=marker:#6579AD,fg+:#303033,prompt:#647FC5,hl+:#C94F55 \
