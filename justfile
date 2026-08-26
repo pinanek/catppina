@@ -144,6 +144,13 @@ build_fzf: (_build_whiskers \
     'themes/catppuccin-fzf-latte.sh' \
     'themes/catppuccin-fzf-mocha.sh' \
     'sh')
+    mv \
+        {{ quote(temp_dir / 'fzf/themes/catppuccin-fzf-latte.fish') }} \
+        {{ quote(dist_dir / 'fzf' / (theme_light + '.fish')) }}
+
+    mv \
+        {{ quote(temp_dir / 'fzf/themes/catppuccin-fzf-mocha.fish') }} \
+        {{ quote(dist_dir / 'fzf' / (theme_dark + '.fish')) }}
 
 build_ghostty: (_build_whiskers \
     'ghostty' \
