@@ -37,3 +37,6 @@
 [submodule "ports/zed"]
 	path = ports/zed
 	url = https://github.com/catppuccin/zed
+[submodule "ports/posting"]
+	path = ports/posting
+	url = https://github.com/catppuccin/posting

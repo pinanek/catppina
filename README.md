@@ -431,6 +431,7 @@ Generated themes are available in the [`dist`](dist/) directory.
 | 🍴 [GitUI](https://github.com/gitui-org/gitui)                                    | [`dist/gitui`](dist/gitui/)                                     |
 | ➿ [Helix](https://helix-editor.com)                                                | [`dist/helix`](dist/helix/)                                    |
 | 🍴 [lazygit](https://github.com/jesseduffield/lazygit)                             | [`dist/lazygit`](dist/lazygit/)                                 |
+| 📮 [Posting](https://github.com/darrenburns/posting)                                | [`dist/posting`](dist/posting/)                                  |
 | 💥 [Yazi](https://yazi-rs.github.io)                                               | [`dist/yazi`](dist/yazi/)                                       |
 | 🦀 [Zed](https://zed.dev)                                                          | [`dist/zed`](dist/zed/)                                         |
 | 🪗 [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | [`dist/zsh-syntax-highlighting`](dist/zsh-syntax-highlighting/) |

@@ -176,6 +176,12 @@ build_lazygit: (_build_whiskers \
     ('themes-mergable/' + dark_variant + '/' + theme_accent + '.yml') \
     'yml')
 
+build_posting: (_build_whiskers \
+    'posting' \
+    ('themes/' + light_variant + '/catppuccin-' + light_variant + '-' + theme_accent + '.yaml') \
+    ('themes/' + dark_variant + '/catppuccin-' + dark_variant + '-' + theme_accent + '.yaml') \
+    'yaml')
+
 build_yazi: (_build_whiskers \
     'yazi' \
     ('themes/' + light_variant + '/catppuccin-' + light_variant + '-' + theme_accent + '.toml') \
@@ -205,6 +211,7 @@ build_zsh_syntax_highlighting: (_build_whiskers \
     build_gitui \
     build_helix \
     build_lazygit \
+    build_posting \
     build_yazi \
     build_zed \
     build_zsh_syntax_highlighting \
