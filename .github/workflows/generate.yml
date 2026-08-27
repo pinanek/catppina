@@ -39,7 +39,7 @@ jobs:
           just build
 
       - name: Push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v7
         if: ${{ github.repository == 'pinanek/catppina' && github.ref == 'refs/heads/main' }}
         with:
           commit_message: "chore: Re-generate theme(s)"

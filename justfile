@@ -176,11 +176,23 @@ build_lazygit: (_build_whiskers \
     ('themes-mergable/' + dark_variant + '/' + theme_accent + '.yml') \
     'yml')
 
-build_posting: (_build_whiskers \
-    'posting' \
-    ('themes/' + light_variant + '/catppuccin-' + light_variant + '-' + theme_accent + '.yaml') \
-    ('themes/' + dark_variant + '/catppuccin-' + dark_variant + '-' + theme_accent + '.yaml') \
-    'yaml')
+build_posting: (_prepare_target 'posting')
+    echo -n 'Building posting...'
+
+    cd {{ quote(temp_dir / 'posting') }} && \
+        whiskers \
+            'posting.tera' \
+            --color-overrides {{ quote(colors_no_hash) }}
+
+    sed 's/^name: .*/name: "catppina_light"/' \
+        {{ quote(temp_dir / 'posting' / ('themes/' + light_variant + '/catppuccin-' + light_variant + '-' + theme_accent + '.yaml')) }} \
+        > {{ quote(dist_dir / 'posting' / (theme_light + '.yaml')) }}
+
+    sed 's/^name: .*/name: "catppina_dark"/' \
+        {{ quote(temp_dir / 'posting' / ('themes/' + dark_variant + '/catppuccin-' + dark_variant + '-' + theme_accent + '.yaml')) }} \
+        > {{ quote(dist_dir / 'posting' / (theme_dark + '.yaml')) }}
+
+    echo ' done!'
 
 build_yazi: (_build_whiskers \
     'yazi' \
