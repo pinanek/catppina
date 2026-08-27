@@ -158,6 +158,12 @@ build_ghostty: (_build_whiskers \
     'themes/catppuccin-mocha.conf' \
     'conf')
 
+build_gitui: (_build_whiskers \
+    'gitui' \
+    'themes/catppuccin-latte.ron' \
+    'themes/catppuccin-mocha.ron' \
+    'ron')
+
 build_helix: (_build_whiskers \
     'helix' \
     'themes/default/catppuccin_latte.toml' \
@@ -196,6 +202,7 @@ build_zsh_syntax_highlighting: (_build_whiskers \
     build_fish \
     build_fzf \
     build_ghostty \
+    build_gitui \
     build_helix \
     build_lazygit \
     build_yazi \

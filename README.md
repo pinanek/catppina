@@ -428,6 +428,7 @@ Generated themes are available in the [`dist`](dist/) directory.
 | 🐟 [fish](https://fishshell.com)                                                   | [`dist/fish`](dist/fish/)                                       |
 | 🌸 [fzf](https://github.com/junegunn/fzf)                                          | [`dist/fzf`](dist/fzf/)                                         |
 | 👻 [Ghostty](https://ghostty.org)                                                  | [`dist/ghostty`](dist/ghostty/)                                 |
+| 🍴 [GitUI](https://github.com/gitui-org/gitui)                                    | [`dist/gitui`](dist/gitui/)                                     |
 | ➿ [Helix](https://helix-editor.com)                                                | [`dist/helix`](dist/helix/)                                    |
 | 🍴 [lazygit](https://github.com/jesseduffield/lazygit)                             | [`dist/lazygit`](dist/lazygit/)                                 |
 | 💥 [Yazi](https://yazi-rs.github.io)                                               | [`dist/yazi`](dist/yazi/)                                       |
