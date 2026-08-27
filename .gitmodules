@@ -40,3 +40,6 @@
 [submodule "ports/posting"]
 	path = ports/posting
 	url = https://github.com/catppuccin/posting
+[submodule "ports/zellij"]
+	path = ports/zellij
+	url = https://github.com/catppuccin/zellij

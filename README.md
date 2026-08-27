@@ -434,6 +434,7 @@ Generated themes are available in the [`dist`](dist/) directory.
 | 📮 [Posting](https://github.com/darrenburns/posting)                                | [`dist/posting`](dist/posting/)                                  |
 | 💥 [Yazi](https://yazi-rs.github.io)                                               | [`dist/yazi`](dist/yazi/)                                       |
 | 🦀 [Zed](https://zed.dev)                                                          | [`dist/zed`](dist/zed/)                                         |
+| 🧩 [Zellij](https://zellij.dev)                                                    | [`dist/zellij`](dist/zellij/)                                   |
 | 🪗 [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) | [`dist/zsh-syntax-highlighting`](dist/zsh-syntax-highlighting/) |
 
 ## 🛠️ Building

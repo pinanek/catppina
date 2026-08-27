@@ -1,0 +1,29 @@
+themes {
+  catppina_light {
+    bg "#d8d8da" // Surface2
+    fg "#303033" // Text
+    red "#c94f55"
+    green "#398460"
+    blue "#347aa5"
+    yellow "#8b6b22"
+    magenta "#b84f83" // Pink
+    orange "#bd6b32" // Peach
+    cyan "#367fa3" // Sky
+    black "#f1f1f2" // Mantle
+    white "#303033" // Text
+  }
+
+  catppina_dark {
+    bg "#434344" // Surface2
+    fg "#c3c3c4" // Text
+    red "#f88d8e"
+    green "#7fc7a4"
+    blue "#9ccfe9"
+    yellow "#e9cc9c"
+    magenta "#e99cba" // Pink
+    orange "#fbc19d" // Peach
+    cyan "#8fc9e6" // Sky
+    black "#141415" // Mantle
+    white "#c3c3c4" // Text
+  }
+}

@@ -205,6 +205,21 @@ build_zed: (_build_python \
     'themes/catppuccin-mauve.json' \
     'json')
 
+build_zellij: (_prepare_target 'zellij')
+    echo -n 'Building zellij...'
+
+    cd {{ quote(temp_dir / 'zellij') }} && \
+        whiskers \
+            'zellij.tera' \
+            --color-overrides {{ quote(colors_no_hash) }}
+
+    python3 \
+        {{ quote(scripts_dir / 'zellij.py') }} \
+        {{ quote(temp_dir / 'zellij/catppuccin.kdl') }} \
+        > {{ quote(dist_dir / 'zellij/catppina.kdl') }}
+
+    echo ' done!'
+
 build_zsh_syntax_highlighting: (_build_whiskers \
     'zsh-syntax-highlighting' \
     ('themes/catppuccin_' + light_variant + '-zsh-syntax-highlighting.zsh') \
@@ -226,6 +241,7 @@ build_zsh_syntax_highlighting: (_build_whiskers \
     build_posting \
     build_yazi \
     build_zed \
+    build_zellij \
     build_zsh_syntax_highlighting \
     && clean
 
