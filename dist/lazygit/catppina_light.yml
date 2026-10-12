@@ -25,6 +25,5 @@ gui:
       - '#c94f55'
     defaultFgColor:
       - '#303033'
-
-  authorColors:
-    '*': '#6579ad'
+    authorColors:
+      '*': '#6579ad'
