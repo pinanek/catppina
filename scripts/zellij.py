@@ -39,9 +39,11 @@ def get(content: str) -> str:
     if missing_flavors:
         raise ValueError(f"Missing theme block(s): {', '.join(missing_flavors)}")
 
-    return "themes {\n" + "\n\n".join(
-        "\n".join(themes[flavor]) for flavor in THEME_NAMES
-    ) + "\n}\n"
+    return (
+        "themes {\n"
+        + "\n\n".join("\n".join(themes[flavor]) for flavor in THEME_NAMES)
+        + "\n}\n"
+    )
 
 
 if __name__ == "__main__":
