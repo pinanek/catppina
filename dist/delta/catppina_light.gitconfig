@@ -1,4 +1,4 @@
-[delta "blue"]
+[delta "catppina_light"]
 	blame-palette = "#f7f7f8 #f1f1f2 #e9e9eb #eeeeef #e3e3e5"
 	commit-decoration-style = "#9d9da2" bold box ul
 	light = true
@@ -27,4 +27,4 @@
 		bold cyan => syntax "#b4cdda", \
 		bold yellow => syntax "#d2c6ad"
 	# Should match the name of the bat theme
-	syntax-theme = blue
+	syntax-theme = catppina_light

@@ -775,6 +775,7 @@ Generated themes are available in the [`dist`](dist/) directory.
 | ➿ [Helix](https://helix-editor.com)                                               | [`dist/helix`](dist/helix/)                                     |
 | 🍴 [lazygit](https://github.com/jesseduffield/lazygit)                             | [`dist/lazygit`](dist/lazygit/)                                 |
 | 📮 [Posting](https://github.com/darrenburns/posting)                               | [`dist/posting`](dist/posting/)                                 |
+| 💻 [VS Code](https://code.visualstudio.com)                                        | [`dist/vscode`](dist/vscode/)                                   |
 | 💥 [Yazi](https://yazi-rs.github.io)                                               | [`dist/yazi`](dist/yazi/)                                       |
 | 🦀 [Zed](https://zed.dev)                                                          | [`dist/zed`](dist/zed/)                                         |
 | 🧩 [Zellij](https://zellij.dev)                                                    | [`dist/zellij`](dist/zellij/)                                   |
@@ -786,7 +787,8 @@ Generated themes are available in the [`dist`](dist/) directory.
 
 - [just](https://github.com/casey/just)
 - [Whiskers](https://github.com/catppuccin/whiskers)
-- Python 3
+- [Node.js](https://nodejs.org) LTS
+- [pnpm](https://pnpm.io)
 
 ### Build all ports
 

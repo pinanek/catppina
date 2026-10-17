@@ -1,4 +1,4 @@
-set default-list := true
+set default-list
 
 # Configuration
 
@@ -17,12 +17,13 @@ dist_dir := root_dir / 'dist'
 temp_dir := root_dir / '.temp'
 scripts_dir := root_dir / 'scripts'
 
-colors := read(root_dir / 'colors.json')
-colors_no_hash := replace(colors, '#', '')
+colors := replace(read(root_dir / 'colors.json'), '#', '')
 
 # Internal utilities
 
-@_prepare_target target:
+@_generate target:
+    echo 'Building {{ target }}...'
+
     rm -rf \
         {{ quote(temp_dir / target) }} \
         {{ quote(dist_dir / target) }}
@@ -35,14 +36,10 @@ colors_no_hash := replace(colors, '#', '')
         {{ quote(ports_dir / target) }} \
         {{ quote(temp_dir / target) }}
 
-@_build_whiskers target light_source dark_source extension: (_prepare_target target)
-    echo -n 'Building {{ target }}...'
-
     cd {{ quote(temp_dir / target) }} && \
-        whiskers \
-            {{ quote(target + '.tera') }} \
-            --color-overrides {{ quote(colors_no_hash) }}
+        whiskers {{ quote(target + '.tera') }} --color-overrides {{ quote(colors) }}
 
+@_build_whiskers target light_source dark_source extension: (_generate target)
     mv \
         {{ quote(temp_dir / target / light_source) }} \
         {{ quote(dist_dir / target / (theme_light + '.' + extension)) }}
@@ -51,38 +48,27 @@ colors_no_hash := replace(colors, '#', '')
         {{ quote(temp_dir / target / dark_source) }} \
         {{ quote(dist_dir / target / (theme_dark + '.' + extension)) }}
 
-    echo ' done!'
-
-@_build_python target source extension: (_prepare_target target)
-    echo -n 'Building {{ target }}...'
-
-    cd {{ quote(temp_dir / target) }} && \
-        whiskers \
-            {{ quote(target + '.tera') }} \
-            --color-overrides {{ quote(colors_no_hash) }}
-
-    python3 \
-        {{ quote(scripts_dir / (target + '.py')) }} \
+@_build_node target source extension: (_generate target)
+    node \
+        {{ quote(scripts_dir / (target + '.js')) }} \
         {{ quote(temp_dir / target / source) }} \
         {{ quote(light_variant) }} \
-        {{ quote(theme_accent) }} \
         {{ quote(theme_light) }} \
         > {{ quote(dist_dir / target / (theme_light + '.' + extension)) }}
 
-    python3 \
-        {{ quote(scripts_dir / (target + '.py')) }} \
+    node \
+        {{ quote(scripts_dir / (target + '.js')) }} \
         {{ quote(temp_dir / target / source) }} \
         {{ quote(dark_variant) }} \
-        {{ quote(theme_accent) }} \
         {{ quote(theme_dark) }} \
         > {{ quote(dist_dir / target / (theme_dark + '.' + extension)) }}
-
-    echo ' done!'
 
 # Lifecycle
 
 @prepare:
-    echo -n 'Preparing...'
+    echo 'Preparing...'
+
+    pnpm install --frozen-lockfile
 
     rm -rf \
         {{ quote(temp_dir) }} \
@@ -92,8 +78,6 @@ colors_no_hash := replace(colors, '#', '')
         {{ quote(temp_dir) }} \
         {{ quote(dist_dir) }}
 
-    echo ' done!'
-
 @clean:
     rm -rf {{ quote(temp_dir) }}
 
@@ -101,50 +85,50 @@ colors_no_hash := replace(colors, '#', '')
 
 build_btop: (_build_whiskers \
     'btop' \
-    'themes/catppuccin_latte.theme' \
-    'themes/catppuccin_mocha.theme' \
+    ('themes/catppuccin_' + light_variant + '.theme') \
+    ('themes/catppuccin_' + dark_variant + '.theme') \
     'theme')
 
-build_delta: (_build_python \
+build_delta: (_build_node \
     'delta' \
     'catppuccin.gitconfig' \
     'gitconfig')
 
 build_fish: (_build_whiskers \
     'fish' \
-    'themes/static/catppuccin-latte.theme' \
-    'themes/static/catppuccin-mocha.theme' \
+    ('themes/static/catppuccin-' + light_variant + '.theme') \
+    ('themes/static/catppuccin-' + dark_variant + '.theme') \
     'theme')
 
 build_fzf: (_build_whiskers \
     'fzf' \
-    'themes/catppuccin-fzf-latte.sh' \
-    'themes/catppuccin-fzf-mocha.sh' \
+    ('themes/catppuccin-fzf-' + light_variant + '.sh') \
+    ('themes/catppuccin-fzf-' + dark_variant + '.sh') \
     'sh')
     sed 's/set -Ux /set -gx /' \
-        {{ quote(temp_dir / 'fzf/themes/catppuccin-fzf-latte.fish') }} \
+        {{ quote(temp_dir / ('fzf/themes/catppuccin-fzf-' + light_variant + '.fish')) }} \
         > {{ quote(dist_dir / 'fzf' / (theme_light + '.fish')) }}
 
     sed 's/set -Ux /set -gx /' \
-        {{ quote(temp_dir / 'fzf/themes/catppuccin-fzf-mocha.fish') }} \
+        {{ quote(temp_dir / ('fzf/themes/catppuccin-fzf-' + dark_variant + '.fish')) }} \
         > {{ quote(dist_dir / 'fzf' / (theme_dark + '.fish')) }}
 
 build_ghostty: (_build_whiskers \
     'ghostty' \
-    'themes/catppuccin-latte.conf' \
-    'themes/catppuccin-mocha.conf' \
+    ('themes/catppuccin-' + light_variant + '.conf') \
+    ('themes/catppuccin-' + dark_variant + '.conf') \
     'conf')
 
 build_gitui: (_build_whiskers \
     'gitui' \
-    'themes/catppuccin-latte.ron' \
-    'themes/catppuccin-mocha.ron' \
+    ('themes/catppuccin-' + light_variant + '.ron') \
+    ('themes/catppuccin-' + dark_variant + '.ron') \
     'ron')
 
 build_helix: (_build_whiskers \
     'helix' \
-    'themes/default/catppuccin_latte.toml' \
-    'themes/default/catppuccin_mocha.toml' \
+    ('themes/default/catppuccin_' + light_variant + '.toml') \
+    ('themes/default/catppuccin_' + dark_variant + '.toml') \
     'toml')
 
 build_lazygit: (_build_whiskers \
@@ -153,23 +137,17 @@ build_lazygit: (_build_whiskers \
     ('themes-mergable/' + dark_variant + '/' + theme_accent + '.yml') \
     'yml')
 
-build_posting: (_prepare_target 'posting')
-    echo -n 'Building posting...'
-
-    cd {{ quote(temp_dir / 'posting') }} && \
-        whiskers \
-            'posting.tera' \
-            --color-overrides {{ quote(colors_no_hash) }}
-
-    sed 's/^name: .*/name: "catppina_light"/' \
+build_posting: (_generate 'posting')
+    sed 's/^name: .*/name: "{{ theme_light }}"/' \
         {{ quote(temp_dir / 'posting' / ('themes/' + light_variant + '/catppuccin-' + light_variant + '-' + theme_accent + '.yaml')) }} \
         > {{ quote(dist_dir / 'posting' / (theme_light + '.yaml')) }}
 
-    sed 's/^name: .*/name: "catppina_dark"/' \
+    sed 's/^name: .*/name: "{{ theme_dark }}"/' \
         {{ quote(temp_dir / 'posting' / ('themes/' + dark_variant + '/catppuccin-' + dark_variant + '-' + theme_accent + '.yaml')) }} \
         > {{ quote(dist_dir / 'posting' / (theme_dark + '.yaml')) }}
 
-    echo ' done!'
+build_vscode:
+    node {{ quote(scripts_dir / 'vscode.js') }}
 
 build_yazi: (_build_whiskers \
     'yazi' \
@@ -177,25 +155,16 @@ build_yazi: (_build_whiskers \
     ('themes/' + dark_variant + '/catppuccin-' + dark_variant + '-' + theme_accent + '.toml') \
     'toml')
 
-build_zed: (_build_python \
+build_zed: (_build_node \
     'zed' \
     'themes/catppuccin-mauve.json' \
     'json')
 
-build_zellij: (_prepare_target 'zellij')
-    echo -n 'Building zellij...'
-
-    cd {{ quote(temp_dir / 'zellij') }} && \
-        whiskers \
-            'zellij.tera' \
-            --color-overrides {{ quote(colors_no_hash) }}
-
-    python3 \
-        {{ quote(scripts_dir / 'zellij.py') }} \
+build_zellij: (_generate 'zellij')
+    node \
+        {{ quote(scripts_dir / 'zellij.js') }} \
         {{ quote(temp_dir / 'zellij/catppuccin.kdl') }} \
-        > {{ quote(dist_dir / 'zellij/catppina.kdl') }}
-
-    echo ' done!'
+        > {{ quote(dist_dir / 'zellij' / (theme + '.kdl')) }}
 
 build_zsh_syntax_highlighting: (_build_whiskers \
     'zsh-syntax-highlighting' \
@@ -215,6 +184,7 @@ build_zsh_syntax_highlighting: (_build_whiskers \
     build_helix \
     build_lazygit \
     build_posting \
+    build_vscode \
     build_yazi \
     build_zed \
     build_zellij \
