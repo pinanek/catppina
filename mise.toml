@@ -1,5 +1,4 @@
 [tools]
-deno = "latest"
 dprint = "latest"
 just = "latest"
 "github:catppuccin/whiskers" = "2.9.0"

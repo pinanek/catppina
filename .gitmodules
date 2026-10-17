@@ -1,6 +1,3 @@
-[submodule "ports/bat"]
-	path = ports/bat
-	url = https://github.com/catppuccin/bat
 [submodule "ports/yazi"]
 	path = ports/yazi
 	url = https://github.com/catppuccin/yazi

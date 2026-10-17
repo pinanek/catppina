@@ -35,23 +35,6 @@ colors_no_hash := replace(colors, '#', '')
         {{ quote(ports_dir / target) }} \
         {{ quote(temp_dir / target) }}
 
-@_build_deno target light_source dark_source extension: (_prepare_target target)
-    echo -n 'Building {{ target }}...'
-
-    cd {{ quote(temp_dir / target) }} && \
-        deno task build \
-            --color-overrides {{ quote(colors) }}
-
-    mv \
-        {{ quote(temp_dir / target / light_source) }} \
-        {{ quote(dist_dir / target / (theme_light + '.' + extension)) }}
-
-    mv \
-        {{ quote(temp_dir / target / dark_source) }} \
-        {{ quote(dist_dir / target / (theme_dark + '.' + extension)) }}
-
-    echo ' done!'
-
 @_build_whiskers target light_source dark_source extension: (_prepare_target target)
     echo -n 'Building {{ target }}...'
 
@@ -115,12 +98,6 @@ colors_no_hash := replace(colors, '#', '')
     rm -rf {{ quote(temp_dir) }}
 
 # Build targets
-
-build_bat: (_build_deno \
-    'bat' \
-    'themes/Catppuccin Latte.tmTheme' \
-    'themes/Catppuccin Mocha.tmTheme' \
-    'tmTheme')
 
 build_btop: (_build_whiskers \
     'btop' \
@@ -229,7 +206,6 @@ build_zsh_syntax_highlighting: (_build_whiskers \
 # Aggregate build
 
 @_build_all: \
-    build_bat \
     build_btop \
     build_delta \
     build_fish \

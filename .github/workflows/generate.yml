@@ -23,11 +23,6 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-
       - name: Install Just
         uses: extractions/setup-just@v4
 

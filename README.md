@@ -422,7 +422,6 @@ Generated themes are available in the [`dist`](dist/) directory.
 
 | Application                                                                        | Theme files                                                     |
 | ---------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| 🦇 [bat](https://github.com/sharkdp/bat)                                           | [`dist/bat`](dist/bat/)                                         |
 | 🧙 [btop](https://github.com/aristocratos/btop)                                    | [`dist/btop`](dist/btop/)                                       |
 | ➕ [delta](https://github.com/dandavison/delta)                                     | [`dist/delta`](dist/delta/)                                    |
 | 🐟 [fish](https://fishshell.com)                                                   | [`dist/fish`](dist/fish/)                                       |
@@ -442,7 +441,6 @@ Generated themes are available in the [`dist`](dist/) directory.
 ### Requirements
 
 - [just](https://github.com/casey/just)
-- [Deno](https://deno.com)
 - [Whiskers](https://github.com/catppuccin/whiskers)
 - Python 3
 
