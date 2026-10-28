@@ -125,6 +125,12 @@ build_gitui: (_build_whiskers \
     ('themes/catppuccin-' + dark_variant + '.ron') \
     'ron')
 
+build_glamour: (_build_whiskers \
+    'glamour' \
+    ('themes/catppuccin-' + light_variant + '.json') \
+    ('themes/catppuccin-' + dark_variant + '.json') \
+    'json')
+
 build_helix: (_build_whiskers \
     'helix' \
     ('themes/default/catppuccin_' + light_variant + '.toml') \
@@ -181,6 +187,7 @@ build_zsh_syntax_highlighting: (_build_whiskers \
     build_fzf \
     build_ghostty \
     build_gitui \
+    build_glamour \
     build_helix \
     build_lazygit \
     build_posting \

@@ -772,6 +772,7 @@ Generated themes are available in the [`dist`](dist/) directory.
 | 🌸 [fzf](https://github.com/junegunn/fzf)                                          | [`dist/fzf`](dist/fzf/)                                         |
 | 👻 [Ghostty](https://ghostty.org)                                                  | [`dist/ghostty`](dist/ghostty/)                                 |
 | 🍴 [GitUI](https://github.com/gitui-org/gitui)                                     | [`dist/gitui`](dist/gitui/)                                     |
+| 🌟 [Glamour](https://github.com/charmbracelet/glamour)                             | [`dist/glamour`](dist/glamour/)                                 |
 | ➿ [Helix](https://helix-editor.com)                                               | [`dist/helix`](dist/helix/)                                     |
 | 🍴 [lazygit](https://github.com/jesseduffield/lazygit)                             | [`dist/lazygit`](dist/lazygit/)                                 |
 | 📮 [Posting](https://github.com/darrenburns/posting)                               | [`dist/posting`](dist/posting/)                                 |
