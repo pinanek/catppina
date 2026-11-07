@@ -8,12 +8,12 @@ find_keyword  = { fg = "#e9cc9c", italic = true }
 find_position = { fg = "#e99cba", bg = "reset", italic = true }
 
 marker_copied   = { fg = "#7fc7a4", bg = "#7fc7a4" }
-marker_cut      = { fg = "#f88d8e", bg = "#f88d8e" }
+marker_cut      = { fg = "#ff9596", bg = "#ff9596" }
 marker_marked   = { fg = "#7ecebe", bg = "#7ecebe" }
 marker_selected = { fg = "#9ccfe9", bg = "#9ccfe9" }
 
 count_copied   = { fg = "#19191a", bg = "#7fc7a4" }
-count_cut      = { fg = "#19191a", bg = "#f88d8e" }
+count_cut      = { fg = "#19191a", bg = "#ff9596" }
 count_selected = { fg = "#19191a", bg = "#9ccfe9" }
 
 border_symbol = "│"
@@ -46,11 +46,11 @@ sep_right = { open = "", close = "" }
 
 progress_label  = { fg = "#ffffff", bold = true }
 progress_normal = { fg = "#7fc7a4", bg = "#323233" }
-progress_error  = { fg = "#e9cc9c", bg = "#f88d8e" }
+progress_error  = { fg = "#e9cc9c", bg = "#ff9596" }
 
 perm_type  = { fg = "#9ccfe9" }
 perm_read  = { fg = "#e9cc9c" }
-perm_write = { fg = "#f88d8e" }
+perm_write = { fg = "#ff9596" }
 perm_exec  = { fg = "#7fc7a4" }
 perm_sep   = { fg = "#757576" }
 
@@ -82,8 +82,7 @@ title   = {}
 hovered = { fg = "#e99cba", bold = true }
 
 [which]
-border          = { fg = "#9ccfe9" }
-mask            = {}
+mask            = { bg = "#212122" }
 cand            = { fg = "#7ecebe" }
 rest            = { fg = "#939394" }
 desc            = { fg = "#e99cba" }
@@ -91,38 +90,39 @@ separator       = "  "
 separator_style = { fg = "#434344" }
 
 [help]
-border  = { fg = "#9ccfe9" }
-chord   = { fg = "#7ecebe" }
-action  = { fg = "#939394" }
+on      = { fg = "#7ecebe" }
+run     = { fg = "#e99cba" }
+desc    = { fg = "#939394" }
 hovered = { bg = "#434344", bold = true }
+footer  = { fg = "#c3c3c4", bg = "#323233" }
 
 [notify]
 title_info  = { fg = "#7ecebe" }
 title_warn  = { fg = "#e9cc9c" }
-title_error = { fg = "#f88d8e" }
+title_error = { fg = "#ff9596" }
 
 [filetype]
 rules = [
 	# Media
-	{ mime = "**/image/*", fg = "#e9cc9c" },
-	{ mime = "**/{audio,video}/*", fg = "#e99cba" },
+	{ mime = "image/*", fg = "#e9cc9c" },
+	{ mime = "{audio,video}/*", fg = "#e99cba" },
 
 	# Archives
-	{ mime = "**/application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#f88d8e" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#ff9596" },
 
 	# Documents
-	{ mime = "**/application/{pdf,doc,rtf}", fg = "#8fc9e6" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#8fc9e6" },
 
 	# Virtual file system
 	{ mime = "vfs/{absent,stale}", fg = "#323233" },
 
 	# Special file
-	{ url = "*", is = "orphan", bg = "#f88d8e" },
+	{ url = "*", is = "orphan", bg = "#ff9596" },
 	{ url = "*", is = "exec"  , fg = "#7fc7a4" },
 
 	# Dummy file
-	{ url = "*", is = "dummy", bg = "#f88d8e" },
-	{ url = "*/", is = "dummy", bg = "#f88d8e" },
+	{ url = "*", is = "dummy", bg = "#ff9596" },
+	{ url = "*/", is = "dummy", bg = "#ff9596" },
 
 	# Fallback
 	{ url = "*/", fg = "#9ccfe9" },
@@ -154,13 +154,13 @@ dirs = [
 conds = [
 	# Special files
 	{ if = "orphan", text = "", fg = "#c3c3c4" },
-	{ if = "link", text = "", fg = "#a0a0a1" },
+	{ if = "link", text = "", fg = "#b3b3b4" },
 	{ if = "block", text = "", fg = "#e9cc9c" },
 	{ if = "char", text = "", fg = "#e9cc9c" },
 	{ if = "fifo", text = "", fg = "#e9cc9c" },
 	{ if = "sock", text = "", fg = "#e9cc9c" },
 	{ if = "sticky", text = "", fg = "#e9cc9c" },
-	{ if = "dummy", text = "", fg = "#f88d8e" },
+	{ if = "dummy", text = "", fg = "#ff9596" },
 
 	# Fallback
 	{ if = "dir", text = "", fg = "#9ccfe9" },

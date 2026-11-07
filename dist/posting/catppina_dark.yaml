@@ -4,7 +4,7 @@ secondary: "#9ccfe9"  # method selector, some minor labels
 accent: "#c7e4f3"  # header text, scrollbars, cursors, focus highlights
 background: "#19191a" # background colors
 surface: "#212122"  # panels, etc
-error: "#f88d8e"  # error messages
+error: "#ff9596"  # error messages
 success: "#7fc7a4"  # success messages
 warning: "#e9cc9c"  # warning messages
 dark: "true"
@@ -32,7 +32,7 @@ method:
   get: "bold #9ccfe9"
   post: "bold #7fc7a4"
   put: "bold #e9cc9c"
-  delete: "bold #f88d8e"
+  delete: "bold #ff9596"
   patch: "bold #7ecebe"
   options: "bold #c1d0f2"
   head: "bold #b5ccff"

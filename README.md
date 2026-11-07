@@ -44,10 +44,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Rosewater"
         > <strong>Rosewater</strong>
       </td>
-      <td align="center"><code>#c66a5e</code></td>
-      <td align="center"><code>rgb(198,106,94)</code></td>
-      <td align="center"><code>hsl(7 48% 57%)</code></td>
-      <td align="center"><code>oklch(62.7% 0.119 28.7)</code></td>
+      <td align="center"><code>#974036</code></td>
+      <td align="center"><code>rgb(151,64,54)</code></td>
+      <td align="center"><code>hsl(6 47% 40%)</code></td>
+      <td align="center"><code>oklch(48.6% 0.119 28.8)</code></td>
     </tr>
     <tr>
       <td>
@@ -58,10 +58,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Flamingo"
         > <strong>Flamingo</strong>
       </td>
-      <td align="center"><code>#c85d61</code></td>
-      <td align="center"><code>rgb(200,93,97)</code></td>
-      <td align="center"><code>hsl(358 49% 57%)</code></td>
-      <td align="center"><code>oklch(61.1% 0.137 19.7)</code></td>
+      <td align="center"><code>#9f383f</code></td>
+      <td align="center"><code>rgb(159,56,63)</code></td>
+      <td align="center"><code>hsl(356 48% 42%)</code></td>
+      <td align="center"><code>oklch(48.9% 0.137 19.8)</code></td>
     </tr>
     <tr>
       <td>
@@ -72,10 +72,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Pink"
         > <strong>Pink</strong>
       </td>
-      <td align="center"><code>#b84f83</code></td>
-      <td align="center"><code>rgb(184,79,131)</code></td>
-      <td align="center"><code>hsl(330 43% 52%)</code></td>
-      <td align="center"><code>oklch(57.8% 0.147 351.8)</code></td>
+      <td align="center"><code>#9c356a</code></td>
+      <td align="center"><code>rgb(156,53,106)</code></td>
+      <td align="center"><code>hsl(329 49% 41%)</code></td>
+      <td align="center"><code>oklch(49.3% 0.147 352.0)</code></td>
     </tr>
     <tr>
       <td>
@@ -86,19 +86,19 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Mauve"
         > <strong>Mauve</strong>
       </td>
-      <td align="center"><code>#647fc5</code></td>
-      <td align="center"><code>rgb(100,127,197)</code></td>
-      <td align="center"><code>hsl(223 46% 58%)</code></td>
-      <td align="center"><code>oklch(60.6% 0.111 267.1)</code></td>
+      <td align="center"><code>#41599c</code></td>
+      <td align="center"><code>rgb(65,89,156)</code></td>
+      <td align="center"><code>hsl(224 41% 43%)</code></td>
+      <td align="center"><code>oklch(47.8% 0.112 267.3)</code></td>
     </tr>
     <tr>
       <td>
         <img src="assets/colors/light/red.svg" width="24" height="24" alt="Red"> <strong>Red</strong>
       </td>
-      <td align="center"><code>#c94f55</code></td>
-      <td align="center"><code>rgb(201,79,85)</code></td>
-      <td align="center"><code>hsl(357 53% 55%)</code></td>
-      <td align="center"><code>oklch(59.0% 0.156 20.3)</code></td>
+      <td align="center"><code>#a72f3a</code></td>
+      <td align="center"><code>rgb(167,47,58)</code></td>
+      <td align="center"><code>hsl(354 56% 42%)</code></td>
+      <td align="center"><code>oklch(49.2% 0.156 20.1)</code></td>
     </tr>
     <tr>
       <td>
@@ -109,10 +109,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Maroon"
         > <strong>Maroon</strong>
       </td>
-      <td align="center"><code>#bd6252</code></td>
-      <td align="center"><code>rgb(189,98,82)</code></td>
-      <td align="center"><code>hsl(9 45% 53%)</code></td>
-      <td align="center"><code>oklch(60.0% 0.120 31.3)</code></td>
+      <td align="center"><code>#984133</code></td>
+      <td align="center"><code>rgb(152,65,51)</code></td>
+      <td align="center"><code>hsl(8 50% 40%)</code></td>
+      <td align="center"><code>oklch(48.8% 0.120 31.1)</code></td>
     </tr>
     <tr>
       <td>
@@ -123,10 +123,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Peach"
         > <strong>Peach</strong>
       </td>
-      <td align="center"><code>#bd6b32</code></td>
-      <td align="center"><code>rgb(189,107,50)</code></td>
-      <td align="center"><code>hsl(25 58% 47%)</code></td>
-      <td align="center"><code>oklch(61.0% 0.126 52.6)</code></td>
+      <td align="center"><code>#944600</code></td>
+      <td align="center"><code>rgb(148,70,0)</code></td>
+      <td align="center"><code>hsl(28 100% 29%)</code></td>
+      <td align="center"><code>oklch(48.5% 0.125 51.9)</code></td>
     </tr>
     <tr>
       <td>
@@ -137,10 +137,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Yellow"
         > <strong>Yellow</strong>
       </td>
-      <td align="center"><code>#8b6b22</code></td>
-      <td align="center"><code>rgb(139,107,34)</code></td>
-      <td align="center"><code>hsl(42 61% 34%)</code></td>
-      <td align="center"><code>oklch(54.6% 0.097 84.1)</code></td>
+      <td align="center"><code>#765702</code></td>
+      <td align="center"><code>rgb(118,87,2)</code></td>
+      <td align="center"><code>hsl(44 97% 24%)</code></td>
+      <td align="center"><code>oklch(47.6% 0.097 84.3)</code></td>
     </tr>
     <tr>
       <td>
@@ -151,10 +151,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Green"
         > <strong>Green</strong>
       </td>
-      <td align="center"><code>#398460</code></td>
-      <td align="center"><code>rgb(57,132,96)</code></td>
-      <td align="center"><code>hsl(151 40% 37%)</code></td>
-      <td align="center"><code>oklch(55.6% 0.094 160.1)</code></td>
+      <td align="center"><code>#186846</code></td>
+      <td align="center"><code>rgb(24,104,70)</code></td>
+      <td align="center"><code>hsl(154 62% 25%)</code></td>
+      <td align="center"><code>oklch(46.1% 0.094 160.2)</code></td>
     </tr>
     <tr>
       <td>
@@ -165,19 +165,19 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Teal"
         > <strong>Teal</strong>
       </td>
-      <td align="center"><code>#287f76</code></td>
-      <td align="center"><code>rgb(40,127,118)</code></td>
-      <td align="center"><code>hsl(174 52% 33%)</code></td>
-      <td align="center"><code>oklch(54.3% 0.082 185.3)</code></td>
+      <td align="center"><code>#00675f</code></td>
+      <td align="center"><code>rgb(0,103,95)</code></td>
+      <td align="center"><code>hsl(175 100% 20%)</code></td>
+      <td align="center"><code>oklch(46.2% 0.081 185.6)</code></td>
     </tr>
     <tr>
       <td>
         <img src="assets/colors/light/sky.svg" width="24" height="24" alt="Sky"> <strong>Sky</strong>
       </td>
-      <td align="center"><code>#367fa3</code></td>
-      <td align="center"><code>rgb(54,127,163)</code></td>
-      <td align="center"><code>hsl(200 50% 43%)</code></td>
-      <td align="center"><code>oklch(56.6% 0.091 233.1)</code></td>
+      <td align="center"><code>#116285</code></td>
+      <td align="center"><code>rgb(17,98,133)</code></td>
+      <td align="center"><code>hsl(198 77% 29%)</code></td>
+      <td align="center"><code>oklch(46.8% 0.091 233.4)</code></td>
     </tr>
     <tr>
       <td>
@@ -188,10 +188,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Sapphire"
         > <strong>Sapphire</strong>
       </td>
-      <td align="center"><code>#277c97</code></td>
-      <td align="center"><code>rgb(39,124,151)</code></td>
-      <td align="center"><code>hsl(194 59% 37%)</code></td>
-      <td align="center"><code>oklch(54.8% 0.089 223.4)</code></td>
+      <td align="center"><code>#00647e</code></td>
+      <td align="center"><code>rgb(0,100,126)</code></td>
+      <td align="center"><code>hsl(192 100% 25%)</code></td>
+      <td align="center"><code>oklch(46.7% 0.088 223.7)</code></td>
     </tr>
     <tr>
       <td>
@@ -202,10 +202,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Blue"
         > <strong>Blue</strong>
       </td>
-      <td align="center"><code>#347aa5</code></td>
-      <td align="center"><code>rgb(52,122,165)</code></td>
-      <td align="center"><code>hsl(203 52% 43%)</code></td>
-      <td align="center"><code>oklch(55.4% 0.097 239.0)</code></td>
+      <td align="center"><code>#16618b</code></td>
+      <td align="center"><code>rgb(22,97,139)</code></td>
+      <td align="center"><code>hsl(202 73% 32%)</code></td>
+      <td align="center"><code>oklch(47.0% 0.097 239.3)</code></td>
     </tr>
     <tr>
       <td>
@@ -216,10 +216,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Lavender"
         > <strong>Lavender</strong>
       </td>
-      <td align="center"><code>#6579ad</code></td>
-      <td align="center"><code>rgb(101,121,173)</code></td>
-      <td align="center"><code>hsl(223 31% 54%)</code></td>
-      <td align="center"><code>oklch(58.2% 0.084 267.7)</code></td>
+      <td align="center"><code>#485a8c</code></td>
+      <td align="center"><code>rgb(72,90,140)</code></td>
+      <td align="center"><code>hsl(224 32% 42%)</code></td>
+      <td align="center"><code>oklch(47.6% 0.084 268.1)</code></td>
     </tr>
     <tr>
       <td>
@@ -258,10 +258,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Subtext 0"
         > <strong>Subtext 0</strong>
       </td>
-      <td align="center"><code>#606064</code></td>
-      <td align="center"><code>rgb(96,96,100)</code></td>
-      <td align="center"><code>hsl(240 2% 38%)</code></td>
-      <td align="center"><code>oklch(49.0% 0.006 286.2)</code></td>
+      <td align="center"><code>#5b5b5f</code></td>
+      <td align="center"><code>rgb(91,91,95)</code></td>
+      <td align="center"><code>hsl(240 2% 36%)</code></td>
+      <td align="center"><code>oklch(47.3% 0.006 286.2)</code></td>
     </tr>
     <tr>
       <td>
@@ -465,10 +465,10 @@ Generated themes are available in the [`dist`](dist/) directory.
       <td>
         <img src="assets/colors/dark/red.svg" width="24" height="24" alt="Red"> <strong>Red</strong>
       </td>
-      <td align="center"><code>#f88d8e</code></td>
-      <td align="center"><code>rgb(248,141,142)</code></td>
-      <td align="center"><code>hsl(359 88% 76%)</code></td>
-      <td align="center"><code>oklch(75.8% 0.130 20.0)</code></td>
+      <td align="center"><code>#ff9596</code></td>
+      <td align="center"><code>rgb(255,149,150)</code></td>
+      <td align="center"><code>hsl(359 100% 79%)</code></td>
+      <td align="center"><code>oklch(78.1% 0.128 19.8)</code></td>
     </tr>
     <tr>
       <td>
@@ -628,10 +628,10 @@ Generated themes are available in the [`dist`](dist/) directory.
           alt="Subtext 0"
         > <strong>Subtext 0</strong>
       </td>
-      <td align="center"><code>#a0a0a1</code></td>
-      <td align="center"><code>rgb(160,160,161)</code></td>
-      <td align="center"><code>hsl(240 1% 63%)</code></td>
-      <td align="center"><code>oklch(70.6% 0.001 286.4)</code></td>
+      <td align="center"><code>#b3b3b4</code></td>
+      <td align="center"><code>rgb(179,179,180)</code></td>
+      <td align="center"><code>hsl(240 1% 70%)</code></td>
+      <td align="center"><code>oklch(76.7% 0.001 286.4)</code></td>
     </tr>
     <tr>
       <td>

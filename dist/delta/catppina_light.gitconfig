@@ -6,25 +6,25 @@
 	file-style = "#303033"
 	hunk-header-decoration-style = "#9d9da2" box ul
 	hunk-header-file-style = bold
-	hunk-header-line-number-style = bold "#606064"
+	hunk-header-line-number-style = bold "#5b5b5f"
 	hunk-header-style = file line-number syntax
 	line-numbers-left-style = "#9d9da2"
-	line-numbers-minus-style = bold "#c94f55"
-	line-numbers-plus-style = bold "#398460"
+	line-numbers-minus-style = bold "#a72f3a"
+	line-numbers-plus-style = bold "#186846"
 	line-numbers-right-style = "#9d9da2"
 	line-numbers-zero-style = "#9d9da2"
 	# 35% red 65% base
-	minus-emph-style = bold syntax "#e7bdbf"
+	minus-emph-style = bold syntax "#dbb1b5"
 	# 20% red 80% base
-	minus-style = syntax "#eed6d7"
+	minus-style = syntax "#e7cfd2"
 	# 35% green 65% base
-	plus-emph-style = bold syntax "#b5cfc3"
+	plus-emph-style = bold syntax "#a9c5b9"
 	# 20% green 80% base
-	plus-style = syntax "#d1e0d9"
+	plus-style = syntax "#cbdbd4"
 	map-styles = \
-		bold purple => syntax "#c4cde6", \
-		bold blue => syntax "#b3ccdb", \
-		bold cyan => syntax "#b4cdda", \
-		bold yellow => syntax "#d2c6ad"
+		bold purple => syntax "#b8c0d7", \
+		bold blue => syntax "#a9c3d2", \
+		bold cyan => syntax "#a7c3cf", \
+		bold yellow => syntax "#cabfa2"
 	# Should match the name of the bat theme
 	syntax-theme = catppina_light
